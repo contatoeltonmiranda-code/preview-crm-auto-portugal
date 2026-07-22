@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-PT"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proposta de Escopo - CRM, Automacao e IA</title>
+<style>
+:root{--ink:#15181d;--muted:#6b7280;--line:#e6e8ec;--accent:#b8862f;--paper:#fff;--bg:#f2f3f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.paper{max-width:900px;margin:48px auto;background:var(--paper);padding:72px 76px;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 12px 40px rgba(0,0,0,.07)}
+h1{font-size:32px;line-height:1.2;letter-spacing:-.02em;margin:0 0 20px;font-weight:650}
+h2{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:56px 0 18px;padding-bottom:9px;border-bottom:1px solid var(--line);font-weight:650}
+h3{font-size:19px;margin:36px 0 6px;letter-spacing:-.01em;font-weight:620}
+p{margin:0 0 14px}
+hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+strong{font-weight:640}
+em{color:var(--muted)}
+ul{margin:0 0 16px;padding-left:20px}
+li{margin:5px 0}
+table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14.5px}
+th{text-align:left;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:640;padding:9px 12px;border-bottom:1.5px solid var(--ink)}
+td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#fafbfc}
+td:first-child{font-weight:560}
+code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
+.meta{color:var(--muted);font-size:14.5px;margin:0 0 6px}
+.rule-top{border-top:3px solid var(--accent);width:52px;margin:0 0 26px}
+@media(max-width:760px){.paper{margin:0;padding:34px 22px;box-shadow:none;border-radius:0}h1{font-size:25px}table{font-size:13px}th,td{padding:8px 7px}}
+@media print{body{background:#fff}.paper{margin:0;padding:0;box-shadow:none;max-width:none}h3{page-break-after:avoid}table{page-break-inside:avoid}}
+</style></head>
+<body><main class="paper"><div class="rule-top"></div><h1>Proposta de Escopo — CRM, Automação e Camada de IA</h1>
+<p class="meta"><strong>Cliente:</strong> Gestora de cliente independente — retalho automóvel multimarca (Portugal)</p>
+<p class="meta"><strong>Preparado por:</strong> Elton Miranda</p>
+<p class="meta"><strong>Data:</strong> 22 de julho de 2026 · <strong>Versão:</strong> 1.0</p>
+<p class="meta"><strong>Prazo total:</strong> 45 dias · <strong>Investimento:</strong> € / R$ 3.500 (valor único de implementação)</p>
+<hr>
+<h2>1. Enquadramento</h2>
+<p>Documento de resposta ao <em>Diagnóstico Comercial &amp; Requisitos v1.0</em>. Define ferramentas, fases, entregáveis e investimento.</p>
+<p>O princípio que orienta todo o desenho: <strong>o sistema alimenta-se sozinho e avisa — em vez de exigir que a gestora se lembre.</strong></p>
+<hr>
+<h2>2. Ferramentas</h2>
+<table>
+<thead><tr><th>Camada</th><th>Ferramenta</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td>Base de dados e backend</td><td><strong>Supabase</strong> (Postgres, Auth, Storage, RLS)</td><td>Região <strong>UE / Frankfurt</strong> — conformidade RGPD</td></tr>
+<tr><td>Motor de automação</td><td><strong>n8n</strong>, alojado em servidor dedicado ao projeto</td><td>Todos os fluxos de perseguição e alarmística</td></tr>
+<tr><td>Camada de IA</td><td><strong>Claude API</strong> (extração estruturada) + <strong>OpenAI</strong> (triagem e Whisper)</td><td>Abordagem híbrida — cada modelo na tarefa em que é mais forte</td></tr>
+<tr><td>CRM e Dashboard</td><td><strong>Next.js + Tailwind + shadcn/ui</strong>, alojado em <strong>VPS Hostinger — região UE</strong></td><td>Mobile-first. Servidor dedicado, dados na União Europeia</td></tr>
+<tr><td>E-mail</td><td><strong>Gmail API</strong> (OAuth) via n8n</td><td>Triagem, etiquetagem, resposta</td></tr>
+<tr><td>WhatsApp</td><td><strong>WhatsApp Cloud API</strong></td><td>Número profissional separado do pessoal</td></tr>
+<tr><td>Transcrição de chamadas</td><td><strong>PLAUD Note</strong> → <strong>Zapier</strong> → webhook n8n</td><td>Integração oficial. <em>Fallback:</em> Whisper API</td></tr>
+<tr><td>Assinatura eletrónica</td><td><strong>DocuSign</strong> ou <strong>Dropbox Sign</strong></td><td>Validade eIDAS (UE)</td></tr>
+<tr><td>Contratos</td><td>Template DOCX preenchido automaticamente via n8n</td><td></td></tr>
+<tr><td>Agenda</td><td><strong>Google Calendar API + Cal.com</strong></td><td>Test drives e entregas</td></tr>
+<tr><td>Desenvolvimento e QA</td><td>Claude Code · Playwright · GitHub</td><td>Ferramentas de construção</td></tr>
+</tbody></table>
+<p><strong>Notas de arquitetura</strong></p>
+<ul>
+<li><strong>Camada de IA híbrida.</strong> A extração de campos a partir de contratos e transcrições longas usa Claude; a triagem de e-mail e a transcrição de áudio (quando necessária) usam OpenAI. Como tudo passa pelo n8n, trocar de fornecedor é uma alteração pontual — a arquitetura não fica presa a nenhum deles.</li>
+<li><strong>Servidor dedicado na União Europeia.</strong> O CRM, o dashboard e o motor de automação correm num servidor privado (VPS) alojado em datacenter europeu, e a base de dados fica no Supabase, também em região europeia. Nenhum dado da operação sai da UE — requisito determinante, dado que o sistema manipula cartões de cidadão, NIF e recibos de vencimento. O servidor é exclusivo deste projeto, não partilhado com terceiros.</li>
+<li><strong>Captura de chamadas.</strong> O <strong>PLAUD Note</strong> grava chamadas telefónicas normais através de sensor de vibração, sem necessidade de alta-voz. A transcrição segue automaticamente para o sistema através da integração oficial Zapier → n8n. [A CONFIRMAR] plano PLAUD em vigor — o volume de chamadas exige, no mínimo, o plano Pro.</li>
+</ul>
+<hr>
+<h2>3. Fases</h2>
+<h3>Fase 1 — Protótipo Visual · Dias 1 a 10</h3>
+<p>Objetivo: <strong>ver antes de construir.</strong> Protótipo navegável, com dados de exemplo, para validação e ajuste antes de qualquer desenvolvimento pesado.</p>
+<ul>
+<li>Dashboard mobile-first com os 5 blocos: KPIs comerciais · funil visual · &quot;Precisa da sua atenção hoje&quot; · retenção · triagem de e-mail do dia</li>
+<li>Pipeline de Vendas navegável, com as 12 etapas</li>
+<li>Ficha única de cliente (particular e empresa)</li>
+<li>Ecrã de rastreamento multi-proposta — indicador &quot;3/4 recebidas&quot;</li>
+<li>Modelo de dados (<em>schema</em>) de contacto, oportunidade e taxonomia de etiquetas</li>
+</ul>
+<p><strong>Entregável:</strong> protótipo online, acessível por telemóvel, com sessão de validação. Nenhuma fase seguinte arranca sem aprovação desta.</p>
+<hr>
+<h3>Fase 2 — Núcleo: Base de Dados e CRM · Dias 11 a 22</h3>
+<ul>
+<li>Base de dados em produção (Supabase, UE), com controlo de acessos por papel</li>
+<li>Migração <strong>Era 1</strong> — arquivo em nuvem 2008–2023, extração e estruturação por IA</li>
+<li>Migração <strong>Era 2</strong> — contratos em PDF filtrados por assunto do e-mail, limpeza e extração por IA, incluindo o cruzamento <em>e-mail → nome</em></li>
+<li>Ficha única com deduplicação entre canais</li>
+<li>Aplicação das etiquetas: ramo, pagamento, segmento, estado, produto, recência, região</li>
+<li>CRM funcional: criar, editar e consultar contactos e oportunidades</li>
+</ul>
+<p><strong>Entregável:</strong> base histórica carregada e segmentada; CRM operacional.</p>
+<hr>
+<h3>Fase 3 — Automação e Camada de IA · Dias 23 a 37</h3>
+<p>O motor do projeto.</p>
+<p><strong>Captura e IA</strong></p>
+<ul>
+<li>Transcrição de chamada → extração de campos estruturados → criação de contacto e oportunidade</li>
+<li>Ecrã de revisão humana para corrigir extrações da IA</li>
+</ul>
+<p><strong>Pipeline 1 — Vendas (12 etapas)</strong></p>
+<ul>
+<li>Regras de bifurcação: particular/empresa · pronto-pagamento/financiamento/renting · com ou sem seguro</li>
+<li>Etapas opcionais (financiamento e seguro) saltadas automaticamente</li>
+<li>Formulário estratégico pré-proposta (dados + documentos), com seguimento a D+2 e D+5</li>
+<li>Rastreamento multi-proposta com <strong>cobrança diária automática</strong> a cada marca em falta</li>
+<li>Handoff automático para gestora de crédito, colega de seguros e colega de apoio</li>
+<li>Contrato pré-preenchido + assinatura eletrónica + registo do sinal</li>
+</ul>
+<p><strong>Pipeline 2 — Retenção e Reativação</strong></p>
+<ul>
+<li>Inscrição automática de cada negócio ganho; check-ins a 3, 6 e 12 meses</li>
+<li>Campanhas segmentadas por coorte de recência sobre a base histórica</li>
+</ul>
+<p><strong>Pipeline 3 — Pós-venda / Oficina</strong></p>
+<ul>
+<li>Deteção de intenção &quot;revisão/problema&quot; e encaminhamento automático para a oficina</li>
+</ul>
+<p><strong>Triagem de e-mail</strong></p>
+<ul>
+<li>Classificação automática: Comercial · Manutenção-Apoio · Administrativo · Outro</li>
+<li>Biblioteca de 10 a 15 respostas rápidas com variáveis preenchidas pelo CRM</li>
+<li>Registo de toda a troca na ficha do cliente</li>
+</ul>
+<p><strong>Alarmística</strong></p>
+<ul>
+<li>Proposta em atraso · formulário por devolver · e-mail sem resposta &gt;24h/48h · veredito de financiamento · contrato pendente · entregas da semana · check-ins</li>
+<li>Relatório diário de fecho de dia (EOD)</li>
+</ul>
+<p><strong>Entregável:</strong> sistema completo em funcionamento.</p>
+<hr>
+<h3>Fase 4 — Afinação, QA e Formação · Dias 38 a 45</h3>
+<ul>
+<li>Testes ponta a ponta de todos os fluxos (desktop e telemóvel)</li>
+<li>Registo de execuções, reprocessamento e visibilidade de falhas nas automações</li>
+<li>Calibração dos prompts de IA com casos reais</li>
+<li>Revisão dos rótulos e mensagens em português europeu</li>
+<li>Sessões de formação e acompanhamento de arranque</li>
+</ul>
+<p><strong>Entregável:</strong> sistema validado, em produção, com a gestora autónoma na operação.</p>
+<hr>
+<h2>4. Resumo do calendário</h2>
+<table>
+<thead><tr><th>Fase</th><th>Dias</th><th>Foco</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>1–10</td><td>Protótipo visual e validação</td></tr>
+<tr><td>2</td><td>11–22</td><td>Base de dados, migração e CRM</td></tr>
+<tr><td>3</td><td>23–37</td><td>Automações, pipelines e IA</td></tr>
+<tr><td>4</td><td>38–45</td><td>QA, afinação e formação</td></tr>
+</tbody></table>
+<hr>
+<h2>5. Investimento</h2>
+<table>
+<tbody>
+<tr><td><strong>Implementação (valor único)</strong></td><td><strong>3.500</strong></td></tr>
+<tr><td>Inclui</td><td>As 4 fases, todos os módulos descritos, testes e formação</td></tr>
+</tbody></table>
+<p><strong>Custos recorrentes de terceiros — não incluídos.</strong></p>
+<p>Todas as contas e subscrições abaixo são <strong>contratadas em nome da cliente, com acesso e titularidade exclusivamente seus</strong>, e pagas diretamente por ela ao respetivo fornecedor. Não há intermediação, revenda ou gestão de faturação por parte do prestador.</p>
+<table>
+<thead><tr><th>Serviço</th><th>Finalidade</th></tr></thead>
+<tbody>
+<tr><td>Supabase (região UE)</td><td>Base de dados e armazenamento de documentos</td></tr>
+<tr><td>VPS Hostinger (região UE)</td><td>Servidor do CRM, dashboard e motor de automação</td></tr>
+<tr><td>Claude API + OpenAI API</td><td>Créditos de IA — consumo variável conforme volume</td></tr>
+<tr><td>PLAUD</td><td>Plano de transcrição (mínimo Pro, face ao volume de chamadas)</td></tr>
+<tr><td>Zapier</td><td>Ligação PLAUD → sistema</td></tr>
+<tr><td>WhatsApp Cloud API</td><td>Canal profissional</td></tr>
+<tr><td>Assinatura eletrónica</td><td>DocuSign ou Dropbox Sign</td></tr>
+</tbody></table>
+<p>A cliente é a titular de todas as contas e detém os acessos. O prestador utiliza esses acessos apenas durante a implementação, mediante autorização, e não assume a gestão, administração ou responsabilidade pelas contas após a entrega.</p>
+<p>Estimativa de custos recorrentes fornecida em documento separado, após confirmação da volumetria.</p>
+<hr>
+<h2>6. Não incluído nesta fase</h2>
+<p>Fica explicitamente fora do âmbito atual, podendo ser orçamentado à parte:</p>
+<ul>
+<li>IA preditiva de janela de recompra (modelo de padrões sobre a base histórica)</li>
+<li>Autorresponder conversacional avançado por e-mail e WhatsApp</li>
+<li>Integração com a plataforma de contratos do grupo automóvel</li>
+<li>Telefonia VoIP com gravação nativa integrada</li>
+<li>Digitalização do caderno de papel em suporte físico</li>
+<li>Parecer jurídico de RGPD e cláusulas de consentimento de gravação</li>
+<li>Contratação, gestão, administração ou pagamento das contas e subscrições de terceiros</li>
+<li>Administração de sistemas do servidor após a entrega — atualizações, cópias de segurança, monitorização e disponibilidade</li>
+<li>Suporte técnico continuado ou plano de manutenção mensal</li>
+</ul>
+<hr>
+<h2>7. Risco técnico identificado</h2>
+<p>A ligação ao PLAUD é feita hoje pela integração oficial via Zapier, plenamente funcional. O fabricante disponibiliza também uma plataforma de programação própria, tecnicamente superior, mas cuja cobertura na região europeia ainda não estava disponível à data desta proposta. Caso venha a ficar, a ligação será migrada sem custo adicional dentro do âmbito atual.</p>
+<hr>
+<h2>8. Dependências do cliente</h2>
+<p>O cumprimento dos 45 dias depende de:</p>
+<table>
+<thead><tr><th>Dependência</th><th>Quando</th></tr></thead>
+<tbody>
+<tr><td>Compilação dos dados da <strong>Era 2</strong> (mapa de faturação + contratos), estimada em ~15 dias de trabalho da cliente</td><td>Antes do início da Fase 2</td></tr>
+<tr><td>Acesso ao arquivo em nuvem da Era 1</td><td>Início da Fase 2</td></tr>
+<tr><td>Credenciais de e-mail, agenda e assinatura eletrónica</td><td>Início da Fase 2</td></tr>
+<tr><td>Confirmação do modelo PLAUD e do plano de transcrição em vigor</td><td>Fase 1</td></tr>
+<tr><td>Aprovação do protótipo da Fase 1</td><td>Dia 10</td></tr>
+<tr><td>Validação dos modelos de resposta rápida e dos rótulos em português europeu</td><td>Fase 4</td></tr>
+</tbody></table>
+<p>Atrasos nestas dependências deslocam o calendário no mesmo número de dias.</p>
+<hr>
+<p><em>Documento confidencial — destinado exclusivamente à avaliação desta proposta.</em></p></main></body></html>
