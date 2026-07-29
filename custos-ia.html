@@ -39,6 +39,11 @@ table.key td+td{white-space:nowrap}
 <p class="meta"><strong>Data:</strong> 27 de julho de 2026 · <strong>Versão:</strong> 1.0</p>
 <p class="meta"><strong>Referência:</strong> Proposta de Escopo v1.0, de 22 de julho de 2026 — secção 2 (Ferramentas) e secção 5 (Investimento)</p>
 <hr>
+<div class="callout">
+<p><strong>Nota de estado &mdash; 29 de julho de 2026 (v3.0 da proposta).</strong> A decis&atilde;o de arquitetura evoluiu. Na v2.0 tinha sido adotado o <strong>Claude como fornecedor &uacute;nico</strong>; na <strong>v3.0</strong>, por op&ccedil;&atilde;o da cliente e com o crit&eacute;rio por ela definido &mdash; <em>&quot;a melhor op&ccedil;&atilde;o ao melhor custo e capacidade&quot;</em> &mdash;, a arquitetura volta a ser <strong>h&iacute;brida (Claude + OpenAI), com aloca&ccedil;&atilde;o tarefa a tarefa</strong>.</p>
+<p style="margin-top:8px"><strong>Este documento mant&eacute;m-se v&aacute;lido como refer&ecirc;ncia</strong> de m&eacute;todo de c&aacute;lculo, pre&ccedil;os unit&aacute;rios, pressupostos de volumetria e da explica&ccedil;&atilde;o de que API n&atilde;o &eacute; subscri&ccedil;&atilde;o. <strong>Os totais aqui apresentados foram recalculados</strong> na <strong>sec&ccedil;&atilde;o 5 da proposta v3.0</strong>, que passa a ser a fonte para efeitos de decis&atilde;o: inclui o custo do autorresponder conversacional (que entrou no &acirc;mbito na v2.0 e n&atilde;o estava aqui contabilizado) e a extra&ccedil;&atilde;o de compromissos de reuni&otilde;es presenciais (que entrou na v3.0).</p>
+</div>
+
 <h2>1. Questão colocada</h2>
 <blockquote><p><em>"Não entendi porque precisamos de ter Claude API (extração estruturada) + OpenAI (triagem e Whisper), pois isso irá obrigar o cliente a contratar 2 contas de IA, certo? Dado que cada conta tem um custo mensal, existe alguma possibilidade de contratar somente o Claude e usar ou isso sai muito caro? Qual a análise de custos para esse uso?"</em></p></blockquote>
 <p>Questão pertinente, e vale a pena respondê-la em detalhe, porque assenta num pressuposto que convém corrigir antes de qualquer decisão.</p>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-PT"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proposta de Escopo v2.0 — CRM, Automação e IA</title>
+<style>
+:root{--ink:#15181d;--muted:#6b7280;--line:#e6e8ec;--accent:#b8862f;--paper:#fff;--bg:#f2f3f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.paper{max-width:900px;margin:48px auto;background:var(--paper);padding:72px 76px;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 12px 40px rgba(0,0,0,.07)}
+h1{font-size:32px;line-height:1.2;letter-spacing:-.02em;margin:0 0 20px;font-weight:650}
+h2{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:56px 0 18px;padding-bottom:9px;border-bottom:1px solid var(--line);font-weight:650}
+h3{font-size:19px;margin:36px 0 6px;letter-spacing:-.01em;font-weight:620}
+h4{font-size:15.5px;margin:26px 0 6px;font-weight:640;color:#2c313a}
+p{margin:0 0 14px}
+hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+strong{font-weight:640}
+em{color:var(--muted)}
+ul,ol{margin:0 0 16px;padding-left:20px}
+li{margin:5px 0}
+table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14.5px}
+th{text-align:left;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:640;padding:9px 12px;border-bottom:1.5px solid var(--ink)}
+td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#fafbfc}
+td:first-child{font-weight:560}
+code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
+.meta{color:var(--muted);font-size:14.5px;margin:0 0 6px}
+.rule-top{border-top:3px solid var(--accent);width:52px;margin:0 0 26px}
+.badge{display:inline-block;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:3px;vertical-align:2px;margin-left:9px;white-space:nowrap}
+.b-new{background:var(--accent);color:#fff}
+.b-upd{background:#f4ebd8;color:#8a6320;border:1px solid #e3d2ab}
+.quote{background:#f7f8f9;border-left:3px solid #cfd4da;padding:13px 20px;margin:18px 0;color:#4a5058;font-style:italic;font-size:15px;border-radius:0 3px 3px 0}
+.quote p{margin:0}
+.impact{background:#fbf8f1;border-left:3px solid var(--accent);padding:15px 20px;margin:22px 0;font-size:14.5px;border-radius:0 3px 3px 0}
+.impact p{margin:0 0 8px}
+.impact p:last-child{margin:0}
+.tag{display:inline-block;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;padding:2px 8px;border-radius:3px;white-space:nowrap}
+.t-out{background:#fbeaea;color:#9b2c2c}
+.t-in{background:#e8f3ea;color:#226736}
+.t-none{background:#eceff2;color:#4d545c}
+.t-conf{background:#fdf3e0;color:#8a6320}
+.rm{color:#9aa0a6}
+.rm td{text-decoration:line-through}
+.rm td:last-child{text-decoration:none}
+.new-block{background:#fdfbf6;border:1px solid #eee2c9;border-left:3px solid var(--accent);padding:22px 26px 6px;margin:26px 0;border-radius:3px}
+.new-block h3{margin-top:0}
+.legend{font-size:13.5px;color:var(--muted);margin:0 0 4px}
+@media(max-width:760px){.paper{margin:0;padding:34px 22px;box-shadow:none;border-radius:0}h1{font-size:25px}table{font-size:13px}th,td{padding:8px 7px}.new-block{padding:18px 16px 4px}.badge{margin-left:6px}}
+@media print{body{background:#fff}.paper{margin:0;padding:0;box-shadow:none;max-width:none}h3{page-break-after:avoid}table{page-break-inside:avoid}.new-block,.impact,.quote{page-break-inside:avoid}}
+</style></head>
+<body><main class="paper"><div class="rule-top"></div><h1>Proposta de Escopo — CRM, Automação e Camada de IA</h1>
+<p class="meta"><strong>Cliente:</strong> Gestora de cliente independente — retalho automóvel multimarca (Portugal)</p>
+<p class="meta"><strong>Preparado por:</strong> Elton Miranda</p>
+<p class="meta"><strong>Data:</strong> 27 de julho de 2026 · <strong>Versão:</strong> 2.0 <em>(substitui a v1.0, de 22 de julho de 2026)</em></p>
+<p class="meta"><strong>Prazo total:</strong> 55 dias · <strong>Investimento:</strong> R$ 5.000 (valor único de implementação)</p>
+<hr>
+<h2>Nota de leitura desta versão</h2>
+<p>Esta versão responde ponto a ponto às cinco questões colocadas pela cliente sobre a v1.0 e incorpora as decisões daí resultantes.</p>
+<p class="legend">As secções alteradas face à v1.0 estão marcadas com <span class="badge b-upd">Atualizado</span> e as secções inteiramente novas com <span class="badge b-new">Novo</span>.</p>
+<p><strong>O que muda, em resumo:</strong></p>
+<table>
+<thead><tr><th></th><th>v1.0</th><th>v2.0</th></tr></thead>
+<tbody>
+<tr><td>Prazo</td><td>45 dias</td><td><strong>55 dias</strong></td></tr>
+<tr><td>Investimento</td><td>4.500</td><td><strong>R$ 5.000</strong> (4.500 âmbito original + 500 serviços adicionais)</td></tr>
+<tr><td>Camada de IA</td><td>Claude + OpenAI</td><td><strong>Claude, fornecedor único</strong></td></tr>
+<tr><td>Assinatura eletrónica</td><td>No âmbito (DocuSign / Dropbox Sign)</td><td><strong>Fora do âmbito</strong></td></tr>
+<tr><td>Servidor</td><td>VPS Hostinger contratada pela cliente</td><td><strong>Servidor da cliente, único, administrado por técnico dela</strong></td></tr>
+<tr><td>Base de dados</td><td>Supabase Cloud (UE)</td><td><strong>Supabase Cloud ou self-hosted — a decidir na Fase 1</strong></td></tr>
+<tr><td>Janela de recompra</td><td>Fora do âmbito</td><td><strong>Dentro do âmbito</strong> (motor de regras)</td></tr>
+<tr><td>Autorresponder conversacional</td><td>Fora do âmbito</td><td><strong>Dentro do âmbito</strong></td></tr>
+<tr><td>Ligação ao PLAUD</td><td>Zapier</td><td><strong>Node comunitário n8n, com Zapier como plano B</strong></td></tr>
+</tbody></table>
+<hr>
+<h2>1. Enquadramento</h2>
+<p>Documento de resposta ao <em>Diagnóstico Comercial &amp; Requisitos v1.0</em>. Define ferramentas, fases, entregáveis e investimento.</p>
+<p>O princípio que orienta todo o desenho: <strong>o sistema alimenta-se sozinho e avisa — em vez de exigir que a gestora se lembre.</strong></p>
+<hr>
+<h2>2. Pontos levantados pela cliente e respostas <span class="badge b-new">Novo</span></h2>
+<p>Cada ponto está apresentado com a questão colocada, a resposta e o <strong>impacto no âmbito</strong>.</p>
+
+<div class="new-block">
+<h3>Ponto 1 — PLAUD e Zapier</h3>
+<div class="quote"><p>"Vamos reconfirmar se o comercial quer manter o PLAUD, porque o custo face ao volume de conversas é alto. Além disso, o n8n tem um node comunitário com ligação direta ao PLAUD, o que dispensa o Zapier."</p></div>
+<h4>Sobre o node comunitário — aceite, com teste na Fase 1</h4>
+<p>Existe efetivamente um node comunitário para n8n (<code>n8n-nodes-plaud-unofficial</code>) que liga diretamente ao PLAUD, incluindo o servidor europeu. Há utilização confirmada em produção por terceiros. <strong>Fica no plano testá-lo logo na Fase 1.</strong> Se se mostrar estável, o Zapier sai dos custos recorrentes — poupança direta para a cliente.</p>
+<p>O que tem de ficar dito com honestidade: esse node <strong>não é oficial</strong>. Funciona sobre uma API interna do PLAUD que não está documentada nem é suportada pelo fabricante, e a autenticação é feita por um token extraído manualmente do navegador, que expira e exige renovação periódica. O próprio autor avisa que pode deixar de funcionar sem aviso, se o PLAUD alterar a API. Por isso, <strong>a ligação via Zapier mantém-se documentada e pronta como plano B</strong>, para que uma quebra do node não pare a captura de chamadas. A troca entre um e outro é uma alteração pontual no fluxo, sem custo adicional dentro do âmbito.</p>
+<h4>Sobre dispensar o PLAUD — atenção, esta decisão não é isolada</h4>
+<p>Há um alerta que tem de ficar explícito antes de qualquer decisão:</p>
+<ol>
+<li><strong>O PLAUD não é só transcrição — é a captura.</strong> O PLAUD Note grava chamadas telefónicas normais através de um sensor de vibração encostado ao aparelho, <strong>sem exigir alta-voz</strong>. É essa a razão pela qual entrou na proposta. Sem ele, não existe forma prática de capturar a chamada com o comercial a falar ao ouvido, como faz hoje. O problema deixaria de ser "onde transcrever" e passaria a ser "como gravar".</li>
+<li><strong>Sem PLAUD, a transcrição deixa de vir pronta.</strong> Passaria a ser feita por API paga — o que <strong>reintroduz um segundo fornecedor de IA</strong> (a transcrição de áudio não é feita pelo Claude) e <strong>contradiz diretamente a decisão tomada no Ponto 4</strong>, que foi precisamente concentrar tudo num único fornecedor.</li>
+<li>Perder-se-iam também funções que hoje vêm incluídas no plano PLAUD: separação de interlocutores, resumo automático e sincronização.</li>
+</ol>
+<h4>Comparação de custo, ao volume estimado</h4>
+<p>Pressupostos: os mesmos da análise da Questão 4 — 60 / 150 / 300 chamadas por mês (baixo / médio / alto) — com uma <strong>duração média estimada de 6 minutos por chamada</strong> <em>[A CONFIRMAR: duração média real das chamadas do comercial]</em>. Conversão a 1 USD = 0,87804 EUR.</p>
+<table>
+<thead><tr><th></th><th>Baixo (~360 min/mês)</th><th>Médio (~900 min/mês)</th><th>Alto (~1.800 min/mês)</th></tr></thead>
+<tbody>
+<tr><td>PLAUD — plano necessário</td><td>Pro (1.200 min)</td><td>Pro (1.200 min)</td><td>Unlimited</td></tr>
+<tr><td>PLAUD — custo mensal</td><td>€15,80 <em>(€7,32 no anual)</em></td><td>€15,80 <em>(€7,32 no anual)</em></td><td>€26,33 <em>(€17,55 no anual)</em></td></tr>
+<tr><td>Transcrição por API <em>(gpt-4o-transcribe)</em></td><td>€1,90</td><td>€4,74</td><td>€9,48</td></tr>
+<tr><td>Transcrição por API <em>(modelo económico)</em></td><td>€0,95</td><td>€2,37</td><td>€4,74</td></tr>
+<tr><td><strong>Diferença bruta a favor da API</strong></td><td><strong>~€14/mês</strong></td><td><strong>~€11/mês</strong></td><td><strong>~€17/mês</strong></td></tr>
+</tbody></table>
+<p><em>Preços PLAUD conforme levantamento de 22-07-2026, em USD, mercado norte-americano.</em> <strong>[A CONFIRMAR: preços em EUR para Portugal, impostos locais e plano em vigor na conta do comercial.]</strong></p>
+<p><strong>Leitura honesta desta tabela.</strong> A diferença bruta situa-se entre <strong>€11 e €17 por mês</strong>. É real, mas não é o custo total da troca: não inclui a substituição do meio de gravação (que hoje não existe), nem o desenvolvimento do circuito de captura, envio e transcrição, nem a reabertura de uma segunda conta de IA. Face a uma poupança da ordem de <strong>€150 a €200 por ano</strong>, a recomendação é <strong>manter o PLAUD</strong>.</p>
+<p>Se, ainda assim, a decisão for dispensá-lo, isso é legítimo — mas obriga a rever o Ponto 4 em conjunto e implica trabalho adicional de captura de áudio, a orçamentar à parte.</p>
+<div class="impact">
+<p><strong>Impacto no âmbito:</strong> <span class="tag t-none">Sem alteração</span> — o PLAUD mantém-se. A ligação passa a <em>node comunitário (a testar na Fase 1)</em>, com Zapier como plano B. O Zapier passa a custo recorrente <strong>condicional</strong>.</p>
+<p><span class="tag t-conf">A confirmar pela cliente</span> Manutenção do PLAUD, modelo do aparelho e plano em vigor.</p>
+</div>
+</div>
+
+<div class="new-block">
+<h3>Ponto 2 — Assinatura eletrónica</h3>
+<div class="quote"><p>"Não é necessária. Assinaturas e documentos são tratados pelo BackOffice da empresa, não pelo comercial. Vamos confirmar se o comercial preenche dados num template de contrato."</p></div>
+<p><strong>Aceite. Sai do âmbito.</strong> São removidos:</p>
+<ul>
+<li>DocuSign / Dropbox Sign da tabela de ferramentas;</li>
+<li>a assinatura eletrónica da tabela de custos recorrentes;</li>
+<li>a dependência "credenciais de assinatura eletrónica";</li>
+<li>o passo de assinatura da Fase 3.</li>
+</ul>
+<p><strong>Ressalva importante, para não haver mal-entendido mais à frente.</strong> Se o comercial preenche dados num template de contrato, isso <strong>não é assinatura eletrónica — é geração de documento</strong>: pegar num modelo e preenchê-lo automaticamente com os dados que já estão no CRM (nome, NIF, morada, viatura, valores), gerando o ficheiro pronto para seguir para o BackOffice. São coisas diferentes, e essa segunda <strong>pode ser incluída</strong> — é trabalho pequeno, e a proposta já previa o preenchimento automático de template DOCX.</p>
+<p>Para a incluir, é necessário: o template em uso e a lista de campos que o comercial preenche.</p>
+<div class="impact">
+<p><strong>Impacto no âmbito:</strong> <span class="tag t-out">Sai do âmbito</span> Assinatura eletrónica.</p>
+<p><span class="tag t-conf">A confirmar pela cliente</span> Se o comercial preenche um template de contrato e, em caso afirmativo, envio do modelo. A geração automática de documento entra sem alteração de preço.</p>
+</div>
+</div>
+
+<div class="new-block">
+<h3>Ponto 3 — Alojamento, servidor e Supabase</h3>
+<div class="quote"><p>"Providenciamos o servidor (Contabo, Hetzner ou Hostinger) e queremos tudo num único servidor, com n8n comunitário e Supabase. (a) O Next.js + Tailwind + shadcn/ui precisa de servidor próprio? (b) Não existe Supabase self-hosted ou Postgres puro, para evitar os 25 USD/mês acima de 500 MB?"</p></div>
+<h4>(a) O Next.js precisa de servidor próprio? Não.</h4>
+<p>Convém desfazer uma confusão comum: <strong>Next.js, Tailwind e shadcn/ui não são serviços contratados nem ferramentas com mensalidade.</strong> São o <em>código</em> com que o CRM e o dashboard são construídos — é aquilo que a cliente vê no ecrã quando abre o sistema.</p>
+<p>Na prática: escolhido o domínio ou subdomínio (por exemplo, <code>crm.aempresa.pt</code>), <strong>é este código que responde nesse endereço</strong>. Corre no mesmo servidor, ao lado do n8n, como mais um processo. Não precisa de máquina separada, nem de conta separada, nem de custo separado.</p>
+<p>A única exigência técnica: o servidor tem de ter <strong>ambiente Node.js</strong>. Isto significa que serve um servidor Linux com acesso administrativo — VPS Contabo, Hetzner ou Hostinger, qualquer um deles — mas <strong>não serve</strong> alojamento partilhado de páginas estáticas nem alojamento só de PHP/cPanel.</p>
+<p><strong>Arranjo confirmado:</strong> um único servidor, fornecido pela cliente, a correr o CRM e o dashboard, o n8n e — se assim for decidido — o Supabase.</p>
+<h4>(b) Supabase self-hosted existe. Postgres puro não é recomendado.</h4>
+<p><strong>Sim, o Supabase pode ser instalado no próprio servidor</strong>, via Docker, sem qualquer mensalidade. É uma opção legítima e está em cima da mesa.</p>
+<p>A contrapartida, dita com clareza: o Supabase self-hosted <strong>não é um programa, são vários contentores a correr em simultâneo</strong> (base de dados, autenticação, armazenamento, API e painel). Exige memória — <strong>na ordem dos 4 a 8 GB de RAM</strong> só para ele, além do que o n8n e o CRM consomem — e exige alguém responsável por <strong>cópias de segurança, atualizações de segurança e reposição em caso de falha</strong>. Nesta configuração, essa pessoa é o técnico da cliente, não o prestador.</p>
+<p><strong>Postgres puro, esse, não é recomendado.</strong> E a razão não é preferência — é volume de trabalho. O Supabase não é "uma base de dados com mensalidade": é um conjunto de peças que o projeto usa todas.</p>
+<table>
+<thead><tr><th>O que o Supabase traz</th><th>Se for Postgres puro</th></tr></thead>
+<tbody>
+<tr><td><strong>Base de dados</strong> (Postgres)</td><td>Igual — é o mesmo Postgres</td></tr>
+<tr><td><strong>Autenticação</strong> — contas, sessões, recuperação de palavra-passe</td><td>Programar de raiz: registo, sessões, tokens, expiração, reposição de palavra-passe</td></tr>
+<tr><td><strong>Armazenamento de ficheiros com controlo de acesso</strong> — digitalizações, contratos</td><td>Programar de raiz: envio, armazenamento, ligações temporárias, permissões por ficheiro</td></tr>
+<tr><td><strong>RLS</strong> — permissões ao nível da linha</td><td>Programar de raiz, em cada consulta, sem rede de segurança na base de dados</td></tr>
+<tr><td><strong>API automática</strong> sobre as tabelas</td><td>Programar todos os pontos de acesso à mão</td></tr>
+<tr><td><strong>Painel de administração</strong></td><td>Não existe — consultas manuais por linha de comando</td></tr>
+</tbody></table>
+<p>Traduzindo em números: Postgres puro <strong>poupa cerca de 22 EUR/mês e gasta dezenas de horas de desenvolvimento</strong> — horas que não estão no orçamento atual e que teriam de ser orçamentadas à parte. E gasta-as precisamente na camada de segurança de um sistema que guarda <strong>cartões de cidadão, NIF e recibos de vencimento</strong>, onde o RGPD exige controlo de acesso real e demonstrável. Escrever esse controlo à mão é onde os erros aparecem.</p>
+<p>Restam, portanto, duas opções sensatas: <strong>Supabase Cloud</strong> (zero administração, mensalidade quando crescer) ou <strong>Supabase self-hosted</strong> (sem mensalidade, administração a cargo do técnico da cliente). Ambas são viáveis. A decisão fica para a Fase 1, quando o servidor estiver definido.</p>
+<h4>Correção de premissa: os 500 MB não são o problema</h4>
+<p>Vale a pena corrigir um pressuposto da questão, porque muda a conclusão.</p>
+<p>O limite de <strong>500 MB do plano gratuito do Supabase é o da base de dados</strong> — os registos de texto: clientes, oportunidades, interações, etiquetas. <strong>O texto de 3.000 clientes cabe lá com muita folga</strong>, mesmo contando com todo o histórico de interações. Ordem de grandeza: dezenas de megabytes, não centenas.</p>
+<p><strong>O que esgota primeiro é o armazenamento de ficheiros — 1 GB no plano gratuito.</strong> Os documentos digitalizados (cartão de cidadão, comprovativos, recibos, contratos em PDF) ocupam entre algumas centenas de KB e alguns MB cada. Com 3.000 clientes e alguns documentos por cliente, chega-se facilmente a vários GB.</p>
+<p>Ou seja: <strong>o custo vem do armazenamento das digitalizações, não do número de registos.</strong> É esse o verdadeiro critério de decisão entre nuvem e self-hosted — e é também por isso que o self-hosted é uma opção genuinamente interessante neste projeto, porque o espaço em disco de um VPS é barato.</p>
+<div class="impact">
+<p><strong>Impacto no âmbito:</strong> <span class="tag t-none">Sem alteração</span> no trabalho a executar. A infraestrutura passa a ser fornecida e administrada pela cliente. O VPS sai da lista de contratações a fazer para o projeto (passa a "fornecido pela cliente") e o Supabase passa a "Cloud ou self-hosted — a decidir". Acrescenta-se a secção 4, com a fronteira de responsabilidade.</p>
+<p><span class="tag t-conf">A confirmar pela cliente</span> Fornecedor e dimensão do servidor; região UE; Supabase Cloud ou self-hosted; quem é o responsável técnico do servidor.</p>
+</div>
+</div>
+
+<div class="new-block">
+<h3>Ponto 4 — Claude sozinho ou Claude + OpenAI</h3>
+<div class="quote"><p>"Não entendi porque precisamos de Claude API + OpenAI, pois isso obriga a contratar 2 contas de IA. Existe alguma possibilidade de contratar somente o Claude, ou isso sai muito caro?"</p></div>
+<p>Respondido em detalhe no documento anexo <strong><a href="custos-ia.html"><em>Resposta à Questão 4 — Custos da Camada de IA</em></a></strong>. Resumo executivo:</p>
+<ol>
+<li><strong>Não existe mensalidade.</strong> As contas de API não são subscrições: são pré-pagas por consumo. Uma conta parada custa zero. Ter duas contas abertas não gera dois encargos mensais.</li>
+<li><strong>A única coisa que o Claude não faz é transcrever áudio.</strong> Extração estruturada e triagem de e-mail, faz sozinho.</li>
+<li><strong>A transcrição por API era apenas plano de recurso</strong> — o PLAUD já entrega a transcrição pronta.</li>
+<li><strong>Sim, avança-se só com o Claude, sem comprometer nenhum dos 12 módulos.</strong> Fica, curiosamente, cerca de <strong>€1,30 a €1,80 por mês mais caro</strong> — não mais barato — porque a triagem em massa passa para um modelo de preço superior. Não é um critério de decisão relevante.</li>
+<li><strong>Custo total de IA:</strong> entre €2 e €15 por mês, conforme o volume; recomenda-se provisionar €5 a €20/mês. A migração histórica é um custo pontual, de €17 a €103, consoante o volume de documentos e o modelo utilizado.</li>
+</ol>
+<p><strong>Decisão adotada nesta versão: Claude como fornecedor único de IA.</strong> A transcrição por API fica documentada como opção, a ativar apenas se aparecerem áudios fora do PLAUD — o que, como está dito no Ponto 1, depende de o PLAUD se manter.</p>
+<div class="impact">
+<p><strong>Impacto no âmbito:</strong> <span class="tag t-in">Entra no âmbito</span> a arquitetura de fornecedor único. A OpenAI sai da stack e da tabela de custos recorrentes. Sem alteração de prazo nem de investimento.</p>
+</div>
+</div>
+
+<div class="new-block">
+<h3>Ponto 5 — Reincluir a janela de recompra e o autorresponder conversacional</h3>
+<div class="quote"><p>"(a) IA preditiva de janela de recompra — basta ter data de compra, tipo de viatura e média de previsão de recompra, com os dados fornecidos por nós. (b) Autorresponder conversacional avançado, com autoentendimento, contextualização, resposta por tópicos, por e-mail e WhatsApp."</p></div>
+<p><strong>Aceite. Ambos entram no âmbito, como serviços adicionais discriminados</strong> — R$ 500 acrescidos ao investimento e 10 dias acrescidos ao prazo.</p>
+<h4>(a) Janela de recompra — o que é entregue, com rigor de nomenclatura</h4>
+<p>Há aqui uma distinção que é preciso fazer com honestidade, porque as duas coisas costumam aparecer com o mesmo nome:</p>
+<table>
+<thead><tr><th></th><th>Motor de regras de janela de recompra <em>(o que será entregue)</em></th><th>Modelo preditivo treinado <em>(continua fora de âmbito)</em></th></tr></thead>
+<tbody>
+<tr><td>Como funciona</td><td>Cálculo determinístico: data de compra + tipo de viatura + intervalo médio de recompra</td><td>Modelo estatístico que aprende padrões sobre o histórico real</td></tr>
+<tr><td>Dados de que precisa</td><td>Os que a cliente fornece — e que já existem</td><td>Histórico consolidado de recompras dentro do sistema, com anos de operação</td></tr>
+<tr><td>Resultado</td><td>Data prevista de recompra e alerta antecipado</td><td>Probabilidade de recompra por cliente, com margem de erro</td></tr>
+<tr><td>Disponível</td><td><strong>Agora</strong></td><td>Só depois de haver histórico consolidado no sistema</td></tr>
+</tbody></table>
+<p><strong>O que a cliente descreveu é exatamente o motor de regras — e é isso que resolve o problema dela.</strong> Não se promete aqui capacidade preditiva que não vai ser entregue.</p>
+<p>Entregável concreto:</p>
+<ul>
+<li>Campos de <strong>data de compra</strong> e <strong>tipo de viatura</strong> na ficha do cliente, alimentados pela migração histórica e pelas vendas novas;</li>
+<li><strong>Tabela de intervalos médios de recompra por tipo/segmento de viatura</strong>, fornecida pela cliente e <strong>editável por ela</strong> a qualquer momento, sem intervenção técnica;</li>
+<li>Cálculo automático da <strong>data prevista de recompra</strong> de cada cliente da base;</li>
+<li><strong>Alerta antecipado</strong>, com antecedência configurável (por exemplo, 60 ou 90 dias antes da janela);</li>
+<li>Entrada automática desses clientes no <strong>Pipeline 2 — Retenção e Reativação</strong>, com a campanha adequada;</li>
+<li>Lista no dashboard: <strong>"janelas de recompra a abrir nos próximos 30 / 60 / 90 dias"</strong>, ordenada por data.</li>
+</ul>
+<p>Fica fora: modelo estatístico treinado sobre a base histórica, pontuação de probabilidade de conversão e previsão de valor de negócio.</p>
+<h4>(b) Autorresponder conversacional — o que é entregue e onde estão os limites</h4>
+<p>Entregável concreto:</p>
+<ul>
+<li>Resposta conversacional em <strong>e-mail e WhatsApp</strong>, redigida com <strong>contexto duplo</strong>: o histórico do cliente no CRM (viaturas, negócios, estado atual) e o fio da conversa em curso;</li>
+<li><strong>Compreensão de intenção e resposta por tópicos</strong> — se a mensagem do cliente contém três perguntas diferentes, a resposta trata as três, uma a uma;</li>
+<li>Respostas construídas a partir de uma <strong>base de conhecimento aprovada pela cliente</strong> (condições, procedimentos, prazos, respostas-tipo), que ela pode alterar;</li>
+<li><strong>Supervisão humana nos casos sensíveis:</strong> temas como preço, condições de financiamento, prazos de entrega e reclamações geram um <strong>rascunho para aprovação</strong>, em vez de envio automático;</li>
+<li><strong>Escalada automática para pessoa</strong> quando a IA não tem confiança suficiente ou quando o cliente pede para falar com alguém;</li>
+<li>Registo integral de toda a troca na ficha do cliente;</li>
+<li>Arranque <strong>inteiramente supervisionado</strong> — tudo passa por aprovação nas primeiras semanas — com libertação progressiva por tipo de assunto, à medida da confiança da cliente.</li>
+</ul>
+<p>Fica explicitamente fora:</p>
+<ul>
+<li><strong>Negociação de preço, desconto ou retoma de forma autónoma</strong> — nunca sem validação humana;</li>
+<li><strong>Compromissos contratuais, propostas formais ou confirmação de prazos de entrega</strong> sem validação humana;</li>
+<li>Aconselhamento jurídico, fiscal ou de crédito;</li>
+<li>Resposta autónoma a reclamações formais;</li>
+<li>Chamadas de voz automatizadas.</li>
+</ul>
+<div class="impact">
+<p><strong>Impacto no âmbito:</strong> <span class="tag t-in">Entra no âmbito</span> como serviços adicionais discriminados. Mais 10 dias de prazo e mais R$ 500 no investimento. Os dois itens saem da lista "Não incluído nesta fase".</p>
+<p><span class="tag t-conf">A confirmar pela cliente</span> Tabela de intervalos médios de recompra por tipo de viatura; conteúdo da base de conhecimento do autorresponder; lista dos assuntos que exigem sempre validação humana.</p>
+</div>
+</div>
+
+<div class="new-block">
+<h3>Decisões que ficam do lado da cliente</h3>
+<p>Para fechar esta ronda, é necessária resposta a seis pontos:</p>
+<ol>
+<li><strong>PLAUD</strong> — mantém-se ou dispensa-se? <em>(Recomendação: manter. Se for dispensado, o Ponto 4 tem de ser reaberto e há trabalho adicional a orçamentar.)</em></li>
+<li><strong>Template de contrato</strong> — o comercial preenche algum? Em caso afirmativo, enviar o modelo, para incluir a geração automática do documento.</li>
+<li><strong>Servidor</strong> — fornecedor, dimensão e confirmação da região UE; e quem é o responsável técnico.</li>
+<li><strong>Supabase</strong> — Cloud ou self-hosted?</li>
+<li><strong>Janela de recompra</strong> — tabela de intervalos médios de recompra por tipo de viatura.</li>
+<li><strong>Autorresponder</strong> — base de conhecimento e lista de assuntos que exigem sempre validação humana.</li>
+</ol>
+</div>
+<hr>
+<h2>3. Ferramentas <span class="badge b-upd">Atualizado</span></h2>
+<table>
+<thead><tr><th>Camada</th><th>Ferramenta</th><th>Nota</th></tr></thead>
+<tbody>
+<tr><td>Servidor</td><td><strong>VPS fornecida pela cliente</strong> (Contabo, Hetzner ou Hostinger)</td><td><span class="badge b-upd">Atualizado</span> Um único servidor, região UE, com ambiente Node.js. Requisitos mínimos indicados na Fase 1</td></tr>
+<tr><td>Base de dados e backend</td><td><strong>Supabase</strong> (Postgres, Auth, Storage, RLS) — <strong>Cloud (UE) ou self-hosted no mesmo servidor</strong></td><td><span class="badge b-upd">Atualizado</span> Decisão na Fase 1. Em qualquer dos casos, dados na União Europeia</td></tr>
+<tr><td>Motor de automação</td><td><strong>n8n</strong> (edição comunitária), no mesmo servidor</td><td>Todos os fluxos de perseguição e alarmística</td></tr>
+<tr><td>Camada de IA</td><td><strong>Claude API — fornecedor único</strong></td><td><span class="badge b-upd">Atualizado</span> Extração estruturada, triagem e respostas conversacionais. Transcrição por API: opção documentada, inativa</td></tr>
+<tr><td>CRM e Dashboard</td><td><strong>Next.js + Tailwind + shadcn/ui</strong>, no mesmo servidor</td><td><span class="badge b-upd">Atualizado</span> É o código do sistema, não um serviço contratado. Responde no domínio ou subdomínio escolhido. Mobile-first</td></tr>
+<tr><td>E-mail</td><td><strong>Gmail API</strong> (OAuth) via n8n</td><td>Triagem, etiquetagem, resposta</td></tr>
+<tr><td>WhatsApp</td><td><strong>WhatsApp Cloud API</strong></td><td>Número profissional separado do pessoal</td></tr>
+<tr><td>Transcrição de chamadas</td><td><strong>PLAUD Note</strong> → <strong>node comunitário n8n</strong></td><td><span class="badge b-upd">Atualizado</span> A testar na Fase 1. <em>Plano B:</em> Zapier → webhook n8n (integração oficial)</td></tr>
+<tr><td>Contratos</td><td>Template DOCX preenchido automaticamente via n8n</td><td><span class="badge b-upd">Atualizado</span> Geração de documento. Assinatura eletrónica fora do âmbito</td></tr>
+<tr><td>Agenda</td><td><strong>Google Calendar API + Cal.com</strong></td><td>Test drives e entregas</td></tr>
+<tr><td>Desenvolvimento e QA</td><td>Claude Code · Playwright · GitHub</td><td>Ferramentas de construção</td></tr>
+</tbody></table>
+<p><strong>Notas de arquitetura</strong></p>
+<ul>
+<li><strong>Camada de IA de fornecedor único.</strong> Extração de campos, triagem de e-mail e respostas conversacionais passam todas pelo Claude. Uma conta, um saldo, uma fatura. Como tudo corre dentro do n8n, trocar de fornecedor ou acrescentar transcrição por API mais tarde é uma alteração pontual num nó do fluxo.</li>
+<li><strong>Servidor único na União Europeia.</strong> O CRM, o dashboard e o motor de automação correm no servidor fornecido pela cliente. A base de dados fica no Supabase — em região europeia, se for a versão em nuvem; no próprio servidor, se for self-hosted. Nenhum dado da operação sai da UE — requisito determinante, dado que o sistema manipula cartões de cidadão, NIF e recibos de vencimento.</li>
+<li><strong>Captura de chamadas.</strong> O <strong>PLAUD Note</strong> grava chamadas telefónicas normais através de sensor de vibração, sem necessidade de alta-voz. A ligação ao n8n será feita, em primeira escolha, pelo node comunitário; se este se revelar instável, pela integração oficial via Zapier. <strong>[A CONFIRMAR]</strong> modelo do aparelho e plano PLAUD em vigor — o volume de chamadas exige, no mínimo, o plano Pro.</li>
+</ul>
+<hr>
+<h2>4. Infraestrutura e fronteira de responsabilidade <span class="badge b-new">Novo</span></h2>
+<p>Passando a infraestrutura a ser fornecida e administrada pela cliente, é necessário que fique escrito quem responde por quê. Isto protege ambas as partes.</p>
+<table>
+<thead><tr><th>Área</th><th>Responsável</th></tr></thead>
+<tbody>
+<tr><td>Contratação e pagamento do servidor</td><td><strong>Cliente</strong></td></tr>
+<tr><td>Sistema operativo, atualizações e correções de segurança</td><td><strong>Cliente</strong> (técnico designado)</td></tr>
+<tr><td>Cópias de segurança da base de dados e dos ficheiros — execução e teste de reposição</td><td><strong>Cliente</strong> (técnico designado)</td></tr>
+<tr><td>Disponibilidade e monitorização do servidor</td><td><strong>Cliente</strong> (técnico designado)</td></tr>
+<tr><td>Contratação, titularidade e pagamento das contas de terceiros</td><td><strong>Cliente</strong></td></tr>
+<tr><td>Instalação e configuração inicial da aplicação, do n8n e da base de dados</td><td><strong>Prestador</strong>, durante a implementação</td></tr>
+<tr><td>Funcionamento correto da aplicação, dos fluxos e da camada de IA</td><td><strong>Prestador</strong>, no âmbito descrito</td></tr>
+<tr><td>Requisitos mínimos de servidor e recomendação de configuração de cópias de segurança</td><td><strong>Prestador</strong>, na Fase 1</td></tr>
+</tbody></table>
+<p><strong>Em consequência:</strong></p>
+<ul>
+<li>Indisponibilidade, perda de dados ou incidente de segurança com origem na infraestrutura <strong>não são âmbito do prestador</strong>.</li>
+<li>O prestador <strong>indica na Fase 1 os requisitos mínimos</strong> do servidor (memória, disco, sistema operativo, ambiente Node.js) e a configuração de cópias de segurança recomendada. Cumprir esses requisitos é condição para o calendário se manter.</li>
+<li>Se a cliente optar por <strong>Supabase self-hosted</strong>, o encargo de administração aumenta: são vários contentores a correr, com necessidade de memória na ordem dos <strong>4 a 8 GB de RAM</strong> só para essa componente, além do n8n e do CRM. A responsabilidade pelas atualizações e pelas cópias de segurança dessa camada é da cliente.</li>
+<li>O servidor tem de ficar em <strong>datacenter da União Europeia</strong>. Contabo, Hetzner e Hostinger têm todos região UE — <strong>[A CONFIRMAR]</strong> no momento da contratação, porque a região é escolhida nesse ato e não é trivial de alterar depois.</li>
+</ul>
+<hr>
+<h2>5. Fases <span class="badge b-upd">Atualizado</span></h2>
+<h3>Fase 1 — Protótipo Visual · Dias 1 a 10</h3>
+<p>Objetivo: <strong>ver antes de construir.</strong> Protótipo navegável, com dados de exemplo, para validação e ajuste antes de qualquer desenvolvimento pesado.</p>
+<ul>
+<li>Dashboard mobile-first com os 5 blocos: KPIs comerciais · funil visual · "Precisa da sua atenção hoje" · retenção · triagem de e-mail do dia</li>
+<li>Pipeline de Vendas navegável, com as 12 etapas</li>
+<li>Ficha única de cliente (particular e empresa)</li>
+<li>Ecrã de rastreamento multi-proposta — indicador "3/4 recebidas"</li>
+<li>Modelo de dados (<em>schema</em>) de contacto, oportunidade e taxonomia de etiquetas</li>
+<li><span class="badge b-new">Novo</span> Requisitos mínimos de servidor entregues por escrito e decisão Supabase Cloud vs. self-hosted</li>
+<li><span class="badge b-new">Novo</span> Teste do node comunitário PLAUD → n8n, com veredito sobre manter ou dispensar o Zapier</li>
+</ul>
+<p><strong>Entregável:</strong> protótipo online, acessível por telemóvel, com sessão de validação. Nenhuma fase seguinte arranca sem aprovação desta.</p>
+<hr>
+<h3>Fase 2 — Núcleo: Base de Dados e CRM · Dias 11 a 23</h3>
+<ul>
+<li>Base de dados em produção (Supabase, UE), com controlo de acessos por papel</li>
+<li>Migração <strong>Era 1</strong> — arquivo em nuvem 2008–2023, extração e estruturação por IA</li>
+<li>Migração <strong>Era 2</strong> — contratos em PDF filtrados por assunto do e-mail, limpeza e extração por IA, incluindo o cruzamento <em>e-mail → nome</em></li>
+<li>Ficha única com deduplicação entre canais</li>
+<li>Aplicação das etiquetas: ramo, pagamento, segmento, estado, produto, recência, região</li>
+<li>CRM funcional: criar, editar e consultar contactos e oportunidades</li>
+<li><span class="badge b-new">Novo</span> Campos de data de compra e tipo de viatura preparados para a janela de recompra</li>
+</ul>
+<p><strong>Entregável:</strong> base histórica carregada e segmentada; CRM operacional.</p>
+<hr>
+<h3>Fase 3 — Automação e Camada de IA · Dias 24 a 45</h3>
+<p>O motor do projeto.</p>
+<p><strong>Captura e IA</strong></p>
+<ul>
+<li>Transcrição de chamada → extração de campos estruturados → criação de contacto e oportunidade</li>
+<li>Ecrã de revisão humana para corrigir extrações da IA</li>
+</ul>
+<p><strong>Pipeline 1 — Vendas (12 etapas)</strong></p>
+<ul>
+<li>Regras de bifurcação: particular/empresa · pronto-pagamento/financiamento/renting · com ou sem seguro</li>
+<li>Etapas opcionais (financiamento e seguro) saltadas automaticamente</li>
+<li>Formulário estratégico pré-proposta (dados + documentos), com seguimento a D+2 e D+5</li>
+<li>Rastreamento multi-proposta com <strong>cobrança diária automática</strong> a cada marca em falta</li>
+<li>Handoff automático para gestora de crédito, colega de seguros e colega de apoio</li>
+<li><span class="badge b-upd">Atualizado</span> Contrato pré-preenchido a partir dos dados do CRM e registo do sinal — <em>assinatura eletrónica fora do âmbito; o documento segue para o BackOffice</em></li>
+</ul>
+<p><strong>Pipeline 2 — Retenção e Reativação</strong></p>
+<ul>
+<li>Inscrição automática de cada negócio ganho; check-ins a 3, 6 e 12 meses</li>
+<li>Campanhas segmentadas por coorte de recência sobre a base histórica</li>
+<li><span class="badge b-new">Novo</span> Motor de regras de janela de recompra — detalhe na secção 6</li>
+</ul>
+<p><strong>Pipeline 3 — Pós-venda / Oficina</strong></p>
+<ul>
+<li>Deteção de intenção "revisão/problema" e encaminhamento automático para a oficina</li>
+</ul>
+<p><strong>Triagem de e-mail</strong></p>
+<ul>
+<li>Classificação automática: Comercial · Manutenção-Apoio · Administrativo · Outro</li>
+<li>Biblioteca de 10 a 15 respostas rápidas com variáveis preenchidas pelo CRM</li>
+<li>Registo de toda a troca na ficha do cliente</li>
+</ul>
+<p><strong>Autorresponder conversacional — e-mail e WhatsApp</strong> <span class="badge b-new">Novo</span></p>
+<ul>
+<li>Respostas com contexto do histórico do cliente e da conversa, por tópicos, com supervisão humana nos assuntos sensíveis — detalhe e limites na secção 6</li>
+</ul>
+<p><strong>Alarmística</strong></p>
+<ul>
+<li>Proposta em atraso · formulário por devolver · e-mail sem resposta &gt;24h/48h · veredito de financiamento · contrato pendente · entregas da semana · check-ins</li>
+<li><span class="badge b-new">Novo</span> Alerta de janela de recompra a abrir</li>
+<li>Relatório diário de fecho de dia (EOD)</li>
+</ul>
+<p><strong>Entregável:</strong> sistema completo em funcionamento.</p>
+<hr>
+<h3>Fase 4 — Afinação, QA e Formação · Dias 46 a 55</h3>
+<ul>
+<li>Testes ponta a ponta de todos os fluxos (desktop e telemóvel)</li>
+<li>Registo de execuções, reprocessamento e visibilidade de falhas nas automações</li>
+<li>Calibração dos prompts de IA com casos reais</li>
+<li><span class="badge b-new">Novo</span> Calibração do autorresponder com conversas reais e definição do grau de automatismo por tipo de assunto</li>
+<li><span class="badge b-new">Novo</span> Validação da tabela de intervalos de recompra com a cliente</li>
+<li>Revisão dos rótulos e mensagens em português europeu</li>
+<li><span class="badge b-new">Novo</span> Alerta de saldo na conta Claude, para não haver interrupção por falta de crédito</li>
+<li>Sessões de formação e acompanhamento de arranque</li>
+</ul>
+<p><strong>Entregável:</strong> sistema validado, em produção, com a gestora autónoma na operação.</p>
+<hr>
+<h2>6. Serviços adicionais incluídos nesta versão <span class="badge b-new">Novo</span></h2>
+<p>Detalhe do que entra no âmbito por via do Ponto 5. A fundamentação completa — incluindo a distinção entre motor de regras e modelo preditivo — está na secção 2, Ponto 5.</p>
+<table>
+<thead><tr><th>Serviço adicional</th><th>O que é entregue</th><th>O que fica de fora</th></tr></thead>
+<tbody>
+<tr><td><strong>Motor de regras de janela de recompra</strong></td><td>Data prevista de recompra por cliente (data de compra + tipo de viatura + intervalo médio editável pela cliente), alerta antecipado configurável, entrada automática no Pipeline 2, lista no dashboard a 30/60/90 dias</td><td>Modelo estatístico treinado sobre o histórico; pontuação de probabilidade de conversão; previsão de valor de negócio</td></tr>
+<tr><td><strong>Autorresponder conversacional</strong></td><td>Respostas em e-mail e WhatsApp com contexto do histórico do cliente e da conversa, compreensão de intenção, resposta por tópicos, base de conhecimento aprovada pela cliente, supervisão humana nos assuntos sensíveis, escalada para pessoa, registo na ficha</td><td>Negociação autónoma de preço, desconto ou retoma; compromissos contratuais e propostas formais sem validação humana; aconselhamento jurídico, fiscal ou de crédito; resposta autónoma a reclamações formais; chamadas de voz</td></tr>
+</tbody></table>
+<hr>
+<h2>7. Resumo do calendário <span class="badge b-upd">Atualizado</span></h2>
+<table>
+<thead><tr><th>Fase</th><th>Dias (v1.0)</th><th>Dias (v2.0)</th><th>Foco</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>1–10</td><td><strong>1–10</strong></td><td>Protótipo visual, validação, requisitos de servidor e teste do node PLAUD</td></tr>
+<tr><td>2</td><td>11–22</td><td><strong>11–23</strong></td><td>Base de dados, migração e CRM</td></tr>
+<tr><td>3</td><td>23–37</td><td><strong>24–45</strong></td><td>Automações, pipelines, IA, janela de recompra e autorresponder</td></tr>
+<tr><td>4</td><td>38–45</td><td><strong>46–55</strong></td><td>QA, afinação, calibração do autorresponder e formação</td></tr>
+<tr><td><strong>Total</strong></td><td>45 dias</td><td><strong>55 dias</strong></td><td></td></tr>
+</tbody></table>
+<p>Os 10 dias adicionais correspondem aos serviços adicionais do Ponto 5, com a maior parte alocada à Fase 3, onde ficam construídos.</p>
+<hr>
+<h2>8. Investimento <span class="badge b-upd">Atualizado</span></h2>
+<table>
+<thead><tr><th>Componente</th><th>Valor</th></tr></thead>
+<tbody>
+<tr><td>Âmbito original — as 4 fases e todos os módulos do escopo v1.0</td><td>R$ 4.500</td></tr>
+<tr><td><strong>Serviços adicionais</strong> — motor de regras de janela de recompra e autorresponder conversacional (Ponto 5)</td><td>R$ 500</td></tr>
+<tr><td><strong>Total — implementação, valor único</strong></td><td><strong>R$ 5.000</strong></td></tr>
+</tbody></table>
+<p>Inclui as 4 fases, todos os módulos descritos, os dois serviços adicionais, testes e formação.</p>
+<h3>Custos recorrentes de terceiros — não incluídos <span class="badge b-upd">Atualizado</span></h3>
+<p>Todas as contas e subscrições abaixo são <strong>contratadas em nome da cliente, com acesso e titularidade exclusivamente seus</strong>, e pagas diretamente por ela ao respetivo fornecedor. Não há intermediação, revenda ou gestão de faturação por parte do prestador.</p>
+<table>
+<thead><tr><th>Serviço</th><th>Finalidade</th><th>Estado nesta versão</th></tr></thead>
+<tbody>
+<tr><td>Servidor (VPS, região UE)</td><td>CRM, dashboard, n8n e — se self-hosted — Supabase</td><td><span class="badge b-upd">Atualizado</span> Fornecido pela cliente</td></tr>
+<tr><td>Supabase</td><td>Base de dados e armazenamento de documentos</td><td><span class="badge b-upd">Atualizado</span> Cloud (UE) ou self-hosted no mesmo servidor — a decidir na Fase 1. Sem mensalidade se self-hosted</td></tr>
+<tr><td>Claude API</td><td>Créditos de IA — consumo variável conforme volume</td><td><span class="badge b-upd">Atualizado</span> Fornecedor único. Cerca de €5 a €20/mês, conforme volume</td></tr>
+<tr><td>PLAUD</td><td>Plano de transcrição (mínimo Pro, face ao volume de chamadas)</td><td><strong>[A CONFIRMAR]</strong> preços em EUR e plano em vigor</td></tr>
+<tr><td>Zapier</td><td>Ligação PLAUD → sistema</td><td><span class="badge b-upd">Atualizado</span> <strong>Condicional</strong> — só se o node comunitário não se mostrar estável na Fase 1</td></tr>
+<tr><td>WhatsApp Cloud API</td><td>Canal profissional</td><td>Sem alteração</td></tr>
+<tr class="rm"><td>Assinatura eletrónica</td><td>DocuSign ou Dropbox Sign</td><td><span class="tag t-out">Removido</span> Fora do âmbito</td></tr>
+<tr class="rm"><td>OpenAI API</td><td>Triagem e transcrição</td><td><span class="tag t-out">Removido</span> O Claude passa a fornecedor único</td></tr>
+</tbody></table>
+<p>A cliente é a titular de todas as contas e detém os acessos. O prestador utiliza esses acessos apenas durante a implementação, mediante autorização, e não assume a gestão, administração ou responsabilidade pelas contas após a entrega.</p>
+<p>Estimativa detalhada dos custos de IA no documento anexo <a href="custos-ia.html"><em>Resposta à Questão 4 — Custos da Camada de IA</em></a>.</p>
+<hr>
+<h2>9. Não incluído nesta fase <span class="badge b-upd">Atualizado</span></h2>
+<p>Fica explicitamente fora do âmbito atual, podendo ser orçamentado à parte:</p>
+<ul>
+<li><span class="badge b-new">Novo</span> Modelo preditivo de recompra treinado sobre a base histórica — só faz sentido depois de haver histórico consolidado no sistema. O motor de regras, esse, <strong>está incluído</strong> (secção 6)</li>
+<li><span class="badge b-new">Novo</span> Assinatura eletrónica de documentos — tratada pelo BackOffice da empresa</li>
+<li><span class="badge b-new">Novo</span> Negociação autónoma de preço, desconto ou retoma pelo autorresponder, e compromissos contratuais sem validação humana</li>
+<li><span class="badge b-upd">Atualizado</span> <strong>Administração de sistemas do servidor</strong> — instalação do sistema operativo, atualizações, correções de segurança, cópias de segurança, monitorização e disponibilidade. Sendo a infraestrutura fornecida e administrada pela cliente, este ponto ganha peso: ver a fronteira de responsabilidade na secção 4</li>
+<li><span class="badge b-new">Novo</span> Substituição do meio de gravação de chamadas, caso o PLAUD venha a ser dispensado</li>
+<li>Integração com a plataforma de contratos do grupo automóvel</li>
+<li>Telefonia VoIP com gravação nativa integrada</li>
+<li>Digitalização do caderno de papel em suporte físico</li>
+<li>Parecer jurídico de RGPD e cláusulas de consentimento de gravação</li>
+<li>Contratação, gestão, administração ou pagamento das contas e subscrições de terceiros</li>
+<li>Suporte técnico continuado ou plano de manutenção mensal</li>
+</ul>
+<hr>
+<h2>10. Riscos técnicos identificados <span class="badge b-upd">Atualizado</span></h2>
+<p><strong>Ligação ao PLAUD.</strong> O node comunitário para n8n será testado na Fase 1. Sendo uma integração não oficial, sobre uma API interna não documentada e com autenticação por token extraído do navegador, pode deixar de funcionar sem aviso. Por isso a integração oficial via Zapier fica documentada e pronta como plano B, sem custo adicional dentro do âmbito. O fabricante disponibiliza também uma plataforma de programação própria, tecnicamente superior, mas cuja cobertura na região europeia ainda não estava disponível à data desta proposta; caso venha a ficar, a ligação será migrada sem custo adicional.</p>
+<p><strong>Infraestrutura administrada pela cliente.</strong> Passando o servidor a ser da cliente, a disponibilidade do sistema fica dependente da administração feita do lado dela. Um servidor sem cópias de segurança testadas é o risco mais material deste projeto — o prestador entrega a recomendação de configuração na Fase 1, mas a execução é da cliente.</p>
+<p><strong>Prazo.</strong> Os 55 dias pressupõem que as dependências da secção 11 são cumpridas nas datas indicadas e que o servidor está disponível, com os requisitos mínimos, no início da Fase 2.</p>
+<hr>
+<h2>11. Dependências do cliente <span class="badge b-upd">Atualizado</span></h2>
+<p>O cumprimento dos 55 dias depende de:</p>
+<table>
+<thead><tr><th>Dependência</th><th>Quando</th></tr></thead>
+<tbody>
+<tr><td><span class="badge b-new">Novo</span> Servidor contratado, em região UE, com os requisitos mínimos indicados, e acesso administrativo entregue</td><td>Até ao fim da Fase 1</td></tr>
+<tr><td><span class="badge b-new">Novo</span> Decisão Supabase Cloud ou self-hosted, e identificação do responsável técnico do servidor</td><td>Fase 1</td></tr>
+<tr><td><span class="badge b-upd">Atualizado</span> Confirmação sobre o PLAUD — manutenção do aparelho, modelo e plano em vigor</td><td>Fase 1</td></tr>
+<tr><td>Compilação dos dados da <strong>Era 2</strong> (mapa de faturação + contratos), estimada em ~15 dias de trabalho da cliente</td><td>Antes do início da Fase 2</td></tr>
+<tr><td>Acesso ao arquivo em nuvem da Era 1</td><td>Início da Fase 2</td></tr>
+<tr><td><span class="badge b-upd">Atualizado</span> Credenciais de e-mail e agenda — <em>a de assinatura eletrónica deixa de ser necessária</em></td><td>Início da Fase 2</td></tr>
+<tr><td><span class="badge b-new">Novo</span> Template de contrato em uso, se o comercial preencher algum</td><td>Início da Fase 2</td></tr>
+<tr><td><span class="badge b-new">Novo</span> Tabela de intervalos médios de recompra por tipo de viatura</td><td>Antes do início da Fase 3</td></tr>
+<tr><td><span class="badge b-new">Novo</span> Base de conhecimento do autorresponder e lista de assuntos que exigem validação humana</td><td>Antes do início da Fase 3</td></tr>
+<tr><td>Aprovação do protótipo da Fase 1</td><td>Dia 10</td></tr>
+<tr><td>Validação dos modelos de resposta rápida e dos rótulos em português europeu</td><td>Fase 4</td></tr>
+</tbody></table>
+<p>Atrasos nestas dependências deslocam o calendário no mesmo número de dias.</p>
+<hr>
+<h2>12. Itens marcados a confirmar</h2>
+<table>
+<thead><tr><th>Item</th><th>Onde</th></tr></thead>
+<tbody>
+<tr><td>Manutenção do PLAUD, modelo do aparelho e plano em vigor</td><td>Ponto 1 · secção 3</td></tr>
+<tr><td>Preços PLAUD em EUR para Portugal e impostos locais</td><td>Ponto 1 · secção 8</td></tr>
+<tr><td>Duração média real das chamadas do comercial</td><td>Ponto 1</td></tr>
+<tr><td>Se o comercial preenche um template de contrato — e envio do modelo</td><td>Ponto 2</td></tr>
+<tr><td>Fornecedor, dimensão e região UE do servidor; responsável técnico</td><td>Ponto 3 · secção 4</td></tr>
+<tr><td>Supabase Cloud ou self-hosted</td><td>Ponto 3 · secção 3</td></tr>
+<tr><td>Tabela de intervalos médios de recompra por tipo de viatura</td><td>Ponto 5</td></tr>
+<tr><td>Base de conhecimento e assuntos sob validação humana no autorresponder</td><td>Ponto 5</td></tr>
+<tr><td>Valor do carregamento mínimo de saldo na conta Claude</td><td>Anexo — Questão 4</td></tr>
+<tr><td>Tratamento de IVA na faturação da conta de IA (autoliquidação)</td><td>Anexo — Questão 4</td></tr>
+</tbody></table>
+<hr>
+<p><em>Documento confidencial — destinado exclusivamente à avaliação desta proposta. Substitui a versão 1.0, de 22 de julho de 2026.</em></p></main></body></html>
