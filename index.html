@@ -156,7 +156,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <div class="quote">
 <p><em>"Não entendi porque precisamos de Claude API + OpenAI, pois isso obriga a contratar 2 contas de IA. Existe alguma possibilidade de contratar somente o Claude, ou isso sai muito caro?"</em></p>
 </div>
-<p>Respondido em detalhe no documento anexo <a href="custos-ia.html"><a href="custos-ia.html"><em>Resposta à Questão 4 — Custos da Camada de IA</em></a></a>. Resumo:</p>
+<p>Respondido em detalhe no documento anexo <a href="custos-ia.html"><em>Resposta à Questão 4 — Custos da Camada de IA</em></a>. Resumo:</p>
 <ol>
 <li><strong>Não existe mensalidade.</strong> As contas de API não são subscrições: são pré-pagas por consumo. Uma conta parada custa zero.</li>
 <li><strong>A única coisa que o Claude não faz é transcrever áudio.</strong></li>
@@ -392,7 +392,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 </ul>
 <hr>
 <h2>5. Camada de IA — arquitetura híbrida e custos <span class="badge b-new">Novo</span></h2>
-<p>Esta secção substitui, para efeitos de decisão, o resumo que constava do Ponto 4 da v2.0. O documento anexo <a href="custos-ia.html"><a href="custos-ia.html"><em>Resposta à Questão 4 — Custos da Camada de IA</em></a></a> mantém-se válido como referência de método, preços unitários e pressupostos de volumetria.</p>
+<p>Esta secção substitui, para efeitos de decisão, o resumo que constava do Ponto 4 da v2.0. O documento anexo <a href="custos-ia.html"><em>Resposta à Questão 4 — Custos da Camada de IA</em></a> mantém-se válido como referência de método, preços unitários e pressupostos de volumetria.</p>
 <p><strong>O princípio: cada tarefa no motor onde é melhor e mais barata.</strong> A alocação está na tabela do Ponto 7. Em duas frases: a triagem de e-mail vai para o modelo económico da OpenAI porque é volume alto e tarefa simples, onde pagar mais não compra nada; tudo o que envolve documento longo, contexto do cliente ou texto que sai em nome da empresa vai para o Claude, onde a diferença de qualidade se nota e um erro custa mais do que a diferença de preço.</p>
 <p><strong>Pressupostos de volumetria.</strong> Os do anexo, acrescidos dos volumes novos desta versão. São estimativas de trabalho, a substituir por números reais na Fase 1.</p>
 <table>
@@ -514,7 +514,8 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <hr>
 <h2>9. Fases <span class="badge b-upd">Atualizado</span></h2>
 <p>O total mantém-se em <strong>55 dias</strong>. O trabalho novo desta ronda foi redistribuído internamente.</p>
-<p><strong>Fase 1 — Protótipo Visual · Dias 1 a 10.</strong> Objetivo: <strong>ver antes de construir.</strong> Protótipo navegável, com dados de exemplo, para validação e ajuste antes de qualquer desenvolvimento pesado.</p>
+<h4>Fase 1 — Protótipo Visual · Dias 1 a 10</h4>
+<p>Objetivo: <strong>ver antes de construir.</strong> Protótipo navegável, com dados de exemplo, para validação e ajuste antes de qualquer desenvolvimento pesado.</p>
 <ul>
 <li>Dashboard mobile-first com os 5 blocos: KPIs comerciais · funil visual · "Precisa da sua atenção hoje" · retenção · triagem de e-mail do dia</li>
 <li>Pipeline de Vendas navegável, com as 12 etapas</li>
@@ -528,7 +529,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <li><span class="badge b-new">Novo</span> Receção do modelo de contrato e mapeamento dos campos</li>
 </ul>
 <p><em>Entregável:</em> protótipo online, acessível por telemóvel, com sessão de validação. Nenhuma fase seguinte arranca sem aprovação desta.</p>
-<h4>Fase 2 — Núcleo: Base de Dados e CRM · Dias 11 a 23.</h4>
+<h4>Fase 2 — Núcleo: Base de Dados e CRM · Dias 11 a 23</h4>
 <ul>
 <li>Base de dados em produção (Supabase, UE), com controlo de acessos por papel</li>
 <li>Migração <strong>Era 1</strong> — arquivo em nuvem 2008–2023, extração e estruturação por IA</li>
@@ -542,7 +543,8 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 </ul>
 <p><em>Entregável:</em> base histórica carregada e segmentada; CRM operacional; entidades de fabricante criadas.</p>
 <hr>
-<p><strong>Fase 3 — Automação e Camada de IA · Dias 24 a 45.</strong> O motor do projeto.</p>
+<h4>Fase 3 — Automação e Camada de IA · Dias 24 a 45</h4>
+<p>O motor do projeto.</p>
 <p class="sublabel">Captura e IA</p>
 <ul>
 <li><span class="badge b-upd">Atualizado</span> Ingestão da gravação com <strong>classificação de tipo e contraparte</strong> — presencial ou telefónica, cliente ou fabricante</li>
@@ -589,7 +591,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <li>Relatório diário de fecho de dia (EOD)</li>
 </ul>
 <p><em>Entregável:</em> sistema completo em funcionamento.</p>
-<h4>Fase 4 — Afinação, QA e Formação · Dias 46 a 55.</h4>
+<h4>Fase 4 — Afinação, QA e Formação · Dias 46 a 55</h4>
 <ul>
 <li>Testes ponta a ponta de todos os fluxos (desktop e telemóvel)</li>
 <li><span class="badge b-new">Novo</span> Teste ponta a ponta do circuito de contrato: dados → PDF → e-mail → arquivo</li>
@@ -652,7 +654,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 </tbody></table>
 <p><strong>Sobre as contas de IA, para que não haja dúvida:</strong> não são subscrições. São contas pré-pagas, em que se carrega saldo e se desconta o consumo. <strong>Duas contas abertas não significam duas mensalidades</strong> — significam dois saldos, cada um a descontar apenas o que for usado. Uma conta sem consumo custa zero.</p>
 <p>A cliente é a titular de todas as contas e detém os acessos. O prestador utiliza esses acessos apenas durante a implementação, mediante autorização, e não assume a gestão, administração ou responsabilidade pelas contas após a entrega.</p>
-<p>Detalhe completo dos custos de IA na secção 5 e, como referência de método e preços unitários, no documento anexo <a href="custos-ia.html"><a href="custos-ia.html"><em>Resposta à Questão 4 — Custos da Camada de IA</em></a></a>.</p>
+<p>Detalhe completo dos custos de IA na secção 5 e, como referência de método e preços unitários, no documento anexo <a href="custos-ia.html"><em>Resposta à Questão 4 — Custos da Camada de IA</em></a>.</p>
 <hr>
 <h2>13. Não incluído nesta fase <span class="badge b-upd">Atualizado</span></h2>
 <p>Fica explicitamente fora do âmbito atual, podendo ser orçamentado à parte:</p>
