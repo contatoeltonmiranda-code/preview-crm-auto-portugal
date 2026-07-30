@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-PT"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Proposta de Escopo v3.1 — CRM, Automação e IA</title>
+<title>Proposta de Escopo v3.0 — CRM, Automação e IA</title>
 <style>
 :root{--ink:#15181d;--muted:#6b7280;--line:#e6e8ec;--accent:#b8862f;--paper:#fff;--bg:#f2f3f5}
 *{box-sizing:border-box}
@@ -55,30 +55,27 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <div class="rule-top"></div><h1>Proposta de Escopo — CRM, Automação e Camada de IA</h1>
 <p class="meta"><strong>Cliente:</strong> Gestora de cliente independente — retalho automóvel multimarca (Portugal)</p>
 <p class="meta"><strong>Preparado por:</strong> Elton Miranda</p>
-<p class="meta"><strong>Data:</strong> 30 de julho de 2026 · <strong>Versão:</strong> 3.1 <em>(corrige a secção 7 da v3.0, de 29 de julho de 2026)</em></p>
+<p class="meta"><strong>Data:</strong> 29 de julho de 2026 · <strong>Versão:</strong> 3.0 <em>(substitui a v2.0, de 27 de julho de 2026)</em></p>
 <p class="meta"><strong>Prazo total:</strong> 55 dias · <strong>Investimento:</strong> R$ 5.000 (valor único de implementação)</p>
 <hr>
 <h2>Nota de leitura desta versão</h2>
-<div class="impact">
-<p><strong>Esta versão 3.1 corrige a secção 7 face à v3.0.</strong> A cliente esclareceu, a 30 de julho de 2026, que <strong>o contrato é gerado pelo software interno da empresa de venda de viaturas</strong> — é esse sistema que tem os contratos, e é dele que sai o PDF. A secção 7 da v3.0 descrevia, por isso, a funcionalidade errada. Tinha razão a cliente: essa secção deixa de se chamar <em>“Geração do contrato em PDF”</em> e passa a <strong>“Receção, arquivo e leitura do contrato”</strong> — o sistema recebe o PDF, arquiva-o na ficha e <strong>lê-o por IA para alimentar o CRM</strong>. <strong>Todo o restante conteúdo da v3.0 mantém-se.</strong></p>
-</div>
-<p>A v3.0 respondeu ponto a ponto à segunda ronda de comentários da cliente, de 29 de julho de 2026, e a ronda 1 mantém-se no documento, para que o histórico completo fique visível. A <strong>ronda 3</strong>, de 30 de julho, está no <strong>Ponto 11</strong> da secção 2.</p>
+<p>Esta versão responde ponto a ponto à segunda ronda de comentários da cliente, de 29 de julho de 2026, e incorpora as decisões daí resultantes. A ronda 1 mantém-se no documento, para que o histórico completo fique visível.</p>
 <p>As secções alteradas face à v2.0 estão marcadas com <span class="badge b-upd">Atualizado</span>; as secções inteiramente novas, com <span class="badge b-new">Novo</span>.</p>
 <h4>O que muda, em resumo:</h4>
 <table>
-<thead><tr><th></th><th>v2.0</th><th>v3.1</th></tr></thead>
+<thead><tr><th></th><th>v2.0</th><th>v3.0</th></tr></thead>
 <tbody>
 <tr><td>Prazo</td><td>55 dias</td><td><strong>55 dias — sem alteração</strong></td></tr>
 <tr><td>Investimento</td><td>R$ 5.000</td><td><strong>R$ 5.000 — sem alteração</strong></td></tr>
 <tr><td>Camada de IA</td><td>Claude, fornecedor único</td><td><strong>Híbrida — Claude + OpenAI, alocada tarefa a tarefa pelo critério eficiência vs custo</strong></td></tr>
 <tr><td>Gravações</td><td>Apenas chamadas telefónicas</td><td><strong>Dois tipos: chamada telefónica e reunião presencial, com gestão distinta</strong></td></tr>
 <tr><td>Fabricantes, marcas e parceiros</td><td>Sem entidade própria</td><td><strong>Entidade própria, fora do pipeline de vendas</strong></td></tr>
-<tr><td>Contrato</td><td>Documento pré-preenchido, entregue ao BackOffice</td><td><strong>[Corrigido na v3.1]</strong> O PDF é gerado pelo <strong>sistema interno do grupo</strong>. Este sistema recebe-o, arquiva-o na ficha e <strong>lê-o por IA para atualizar o CRM</strong></td></tr>
+<tr><td>Contrato</td><td>Documento pré-preenchido, entregue ao BackOffice</td><td><strong>PDF gerado, enviado por e-mail e arquivado na ficha do cliente</strong></td></tr>
 <tr><td>Servidor e cópias de segurança</td><td>Da cliente</td><td><strong>Confirmado — geridos pela equipa da cliente</strong></td></tr>
 <tr><td>Assinatura eletrónica</td><td>Fora do âmbito</td><td>Fora do âmbito — sem alteração</td></tr>
 <tr><td>Plano PLAUD</td><td>Pro, na maioria dos cenários</td><td><strong>Unlimited na maioria dos cenários — as reuniões presenciais multiplicam os minutos</strong></td></tr>
 </tbody></table>
-<p><strong>Os dois itens que entram nesta versão — o tratamento do contrato em PDF (receção, arquivo e leitura por IA) e a gestão dos dois tipos de gravação — entram sem custo adicional e sem alargar o prazo.</strong> A fundamentação está na secção 3.</p>
+<p><strong>Os dois itens que entram nesta versão — a geração do PDF de contrato e a gestão dos dois tipos de gravação — entram sem custo adicional e sem alargar o prazo.</strong> A fundamentação está na secção 3.</p>
 <hr>
 <h2>1. Enquadramento</h2>
 <p>Documento de resposta ao <em>Diagnóstico Comercial &amp; Requisitos v1.0</em>. Define ferramentas, fases, entregáveis e investimento.</p>
@@ -295,7 +292,6 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <div class="impact">
 <p><strong>Impacto no âmbito:</strong> <span class="tag t-in">Entra no âmbito</span> — geração do PDF de contrato, envio por e-mail e arquivo ligado à ficha. <strong>Sem custo adicional e sem alteração de prazo</strong> — ver secção 3.</p>
 <p><span class="tag t-conf">A confirmar pela cliente</span> o modelo de contrato em uso (ficheiro); a lista completa de campos a preencher; e onde fica o arquivo — no armazenamento do próprio sistema (Supabase Storage) ou numa pasta em nuvem da empresa.</p>
-<p><strong>Nota da v3.1: a parte da geração foi corrigida.</strong> A cliente esclareceu a 30 de julho que o contrato é gerado pelo sistema interno do grupo. Sai a geração; entram a receção, o arquivo e a leitura do PDF. Ver <strong>Ponto 11</strong> e a secção 7.</p>
 </div>
 </div>
 <div class="new-block">
@@ -328,37 +324,12 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <p><strong>Impacto no âmbito:</strong> <span class="tag t-none">Sem alteração</span> de valor nem de prazo. R$ 5.000 e 55 dias mantêm-se. Os dois itens novos da ronda 2 são absorvidos. Fundamentação completa na secção 3.</p>
 </div>
 </div>
-<h3 class="ronda">RONDA 3 — 30 de julho de 2026</h3>
-<div class="new-block">
-<h3>Ponto 11 — Quem gera o contrato é o sistema interno do grupo <span class="badge b-new">Novo</span></h3>
-<div class="quote">
-<p><em>“A geração do PDF de contrato é realizada pelo software existente na empresa de venda de viaturas (sistema interno), pois eles é que têm o sistema de contratos. O resultado dessa informação é um PDF que a cliente/comercial envia por e-mail e guarda. Nesse caso, não creio que faça sentido a secção 7 — pode ser de outra forma, pois a gestora envia o PDF por e-mail, deve guardar o mesmo e essa informação tem que alimentar o sistema. Não é uma questão de valores por hora, é questão da entrega.”</em></p>
-</div>
-<p><strong>A cliente tem razão, e agradece-se o esclarecimento.</strong> A secção 7 da v3.0 descrevia a funcionalidade errada. Partia do princípio de que era este sistema a preencher o modelo e a produzir o contrato — e não é. <strong>Quem tem o sistema de contratos é o software interno da empresa de venda de viaturas, e é dele que sai o PDF.</strong> A secção 7 é reescrita em conformidade: deixa de se chamar <em>“Geração do contrato em PDF”</em> e passa a <strong>“Receção, arquivo e leitura do contrato”</strong>.</p>
-<p><strong>O que sai do âmbito:</strong> o preenchimento automático do modelo de contrato e a geração do PDF. Com eles saem também os dois pedidos que lhes estavam associados — o ficheiro do modelo de contrato e a lista de campos a preencher.</p>
-<p><strong>O que se mantém:</strong> o envio por e-mail, o arquivo pesquisável ligado à ficha do cliente e à oportunidade, e o registo no histórico.</p>
-<p><strong>O que entra — e é aqui que está a entrega que a cliente descreve</strong> quando diz que <em>“essa informação tem que alimentar o sistema”</em>:</p>
-<ol>
-<li><strong>Leitura do PDF do contrato por IA</strong>, com extração dos dados que dele constam: viatura, matrícula ou identificação, valores, condições, datas e prazos.</li>
-<li><strong>Atualização automática do CRM</strong> com esses dados, na ficha do cliente e na oportunidade, com confirmação da gestora antes de ficarem fixados.</li>
-<li><strong>Atualização do estado da oportunidade no pipeline</strong> — negócio fechado — e <strong>disparo dos passos seguintes já previstos no escopo</strong>: alarmística de entrega e seguimento pós-venda.</li>
-<li><strong>Ficheiro ligado à ficha</strong>, pesquisável e com controlo de acesso.</li>
-</ol>
-<p><strong>Como o PDF chega ao CRM — duas vias, e há uma que é melhor para a gestora.</strong> A via <strong>A</strong> é o carregamento manual: ela abre a ficha do cliente e carrega o ficheiro. A via <strong>B</strong>, recomendada, é o CRM vigiar a caixa de e-mail e <strong>captar o anexo automaticamente</strong> no momento em que ela envia o contrato.</p>
-<p><strong>A recomendação é a via B</strong>, por duas razões. A primeira: não depende de a gestora se lembrar. O contrato é enviado quando o negócio fecha — o momento exato em que a atenção já está no cliente seguinte — e um passo manual nesse ponto é o passo que se perde. A segunda: com a captura automática, <strong>o documento nunca fica de fora do sistema</strong>, porque entra pelo simples facto de ter sido enviado. Não custa mais nem demora mais: a ligação à caixa de e-mail já está no âmbito, para a triagem, e é a mesma que faz esta captura. As duas vias podem coexistir — a automática como regra, a manual como recurso.</p>
-<p><strong>Sobre o esforço, com franqueza:</strong> o que sai — preenchimento do modelo e geração do PDF — e o que entra — leitura do PDF e atualização automática do CRM — equivalem-se em trabalho. <strong>Sem alteração de valor nem de prazo.</strong></p>
-<p>Detalhe completo do circuito corrigido na secção 7.</p>
-<div class="impact">
-<p><strong>Impacto no âmbito:</strong> <span class="tag t-conf">Alteração de natureza</span> <strong>sem alteração de valor nem de prazo.</strong> Sai a geração do contrato; entram a receção, o arquivo e a leitura do PDF com atualização automática do CRM. Revoga a parte da geração decidida no <strong>Ponto 8</strong> (ronda 2). O peso em dias mantém-se — cerca de 2 dias — ver secção 3.</p>
-<p><span class="tag t-conf">A confirmar pela cliente</span> a via de entrada do PDF — carregamento manual ou captura automática por e-mail <em>(recomendada)</em>; os campos do contrato que devem alimentar o CRM; dois ou três PDF de contrato reais para mapear a leitura; e o local de arquivo.</p>
-</div>
-</div>
 <div class="new-block">
 <h3>Decisões que ficam do lado da cliente</h3>
-<p>Para fechar as rondas em aberto, é necessária resposta a sete pontos:</p>
+<p>Para fechar esta ronda, é necessária resposta a sete pontos:</p>
 <ol>
 <li><strong>Reuniões presenciais</strong> — frequência e duração média, para dimensionar o plano PLAUD. <em>(Recomendação: provisionar o Unlimited e rever na Fase 4 com dados reais.)</em></li>
-<li><strong>Contrato</strong> — dois ou três PDF reais, tal como saem do sistema interno; a lista de campos que devem alimentar o CRM; e a via de entrada do ficheiro: carregamento manual ou captura automática por e-mail <em>(recomendada)</em>.</li>
+<li><strong>Modelo de contrato</strong> — envio do ficheiro em uso e da lista de campos a preencher.</li>
 <li><strong>Arquivo do PDF</strong> — no armazenamento do sistema ou numa pasta em nuvem da empresa?</li>
 <li><strong>Fabricantes, marcas e parceiros</strong> — lista dos que devem ficar registados como entidades.</li>
 <li><strong>Servidor</strong> — fornecedor, dimensão, confirmação da região UE e responsável técnico.</li>
@@ -375,7 +346,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <tr><td><strong>Saiu</strong> <em>(ronda 1)</em></td><td>Assinatura eletrónica — integração, passo da Fase 3, gestão de credenciais</td><td><strong>−1,5</strong></td><td>Reduz</td></tr>
 <tr><td><strong>Entrou</strong> <em>(ronda 1, a pedido da cliente)</em></td><td>Motor de regras de janela de recompra</td><td><strong>+3</strong></td><td>Cobrado</td></tr>
 <tr><td><strong>Entrou</strong> <em>(ronda 1, a pedido da cliente)</em></td><td>Autorresponder conversacional — e-mail e WhatsApp</td><td><strong>+7</strong></td><td>Cobrado</td></tr>
-<tr><td><strong>Entra agora</strong> <em>(ronda 2, corrigido na ronda 3)</em></td><td><strong>Contrato em PDF</strong> — receção, arquivo ligado à ficha e <strong>leitura por IA com atualização automática do CRM</strong></td><td><strong>+2</strong></td><td><strong>Sem custo</strong></td></tr>
+<tr><td><strong>Entra agora</strong> <em>(ronda 2)</em></td><td>Geração do PDF de contrato, envio por e-mail e arquivo</td><td><strong>+2</strong></td><td><strong>Sem custo</strong></td></tr>
 <tr><td><strong>Entra agora</strong> <em>(ronda 2)</em></td><td>Gestão dos dois tipos de gravação e entidade fabricante</td><td><strong>+1,5</strong></td><td><strong>Sem custo</strong></td></tr>
 <tr><td></td><td><strong>Saldo líquido de trabalho</strong></td><td><strong>+12 dias</strong></td><td></td></tr>
 </tbody></table>
@@ -392,8 +363,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <tr><td><strong>Servidor passou para a cliente</strong></td><td>O servidor nunca esteve incluído no valor. Era, e continua a ser, uma <strong>conta de terceiros paga diretamente pela cliente</strong> — já na v1.0 estava previsto que fosse contratado em nome dela. Não havia margem sobre ele nem trabalho faturado por causa dele. Sair da tabela de recorrentes do projeto <strong>reduz o custo mensal dela; não altera o valor da implementação</strong></td></tr>
 <tr><td><strong>Administração pós-entrega</strong></td><td><strong>Já estava fora do âmbito desde a v1.0</strong>, na lista "Não incluído nesta fase". Nunca esteve dentro do preço. O que a v2.0 fez foi tornar essa fronteira explícita numa secção própria, para proteger ambas as partes. Tornar visível não é o mesmo que retirar</td></tr>
 </tbody></table>
-<p><strong>O que o contrato em PDF ocupa.</strong> O item do contrato ocupa exatamente o espaço que a assinatura eletrónica libertou — cerca de 1,5 a 2 dias, no mesmo ponto da Fase 3, sobre o mesmo circuito de documento. Sai a integração com o fornecedor de assinatura; entra o tratamento do ficheiro. Do ponto de vista do calendário, é uma substituição limpa.</p>
-<p><strong>A correção da ronda 3 não altera este peso.</strong> Mudou a natureza do item, não o seu tamanho: saiu o preenchimento do modelo e a geração do PDF — que passam a ser feitos pelo sistema interno do grupo — e entrou a leitura do PDF por IA com atualização automática do CRM. <strong>Um trabalho equivale ao outro: os cerca de 2 dias mantêm-se, e o valor também.</strong></p>
+<p><strong>O que o PDF de contrato ocupa.</strong> A geração do PDF de contrato ocupa exatamente o espaço que a assinatura eletrónica libertou — cerca de 1,5 a 2 dias, no mesmo ponto da Fase 3, sobre o mesmo circuito de documento. Sai a integração com o fornecedor de assinatura; entra a geração, o envio e o arquivo do ficheiro. Do ponto de vista do calendário, é uma substituição limpa.</p>
 <p><strong>Fecho.</strong> O valor mantém-se em <strong>R$ 5.000</strong> e o prazo em <strong>55 dias</strong>. Os dois itens novos desta ronda entram absorvidos, sem custo e sem alargar o calendário.</p>
 <p>É este o gesto de fecho da proposta: o âmbito cresce para cobrir a operação real como ela é — com reuniões de fabricante e com contrato em PDF — e o preço não acompanha. A partir daqui, o que estiver fora da lista da secção 13 é orçamentado à parte; o que está dentro está fechado a este valor.</p>
 <hr>
@@ -407,10 +377,10 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <tr><td>Camada de IA — documentos e conversação</td><td><strong>Claude API (Sonnet 5)</strong></td><td><span class="badge b-upd">Atualizado</span> Extração estruturada, extração de compromissos de reunião e respostas conversacionais</td></tr>
 <tr><td>Camada de IA — triagem e transcrição de recurso</td><td><strong>OpenAI API</strong> (modelo económico · gpt-4o-transcribe)</td><td><span class="badge b-new">Novo</span> Reposta na stack. Triagem de e-mail em volume e transcrição de áudio que não passe pelo PLAUD. Ver secção 5</td></tr>
 <tr><td>CRM e Dashboard</td><td><strong>Next.js + Tailwind + shadcn/ui</strong>, no mesmo servidor</td><td>É o código do sistema, não um serviço contratado. Responde no domínio ou subdomínio escolhido. Mobile-first</td></tr>
-<tr><td>E-mail</td><td><strong>Gmail API</strong> (OAuth) via n8n</td><td><span class="badge b-upd">Atualizado na v3.1</span> Triagem, etiquetagem, resposta e <strong>captura do PDF de contrato enviado pela gestora</strong></td></tr>
+<tr><td>E-mail</td><td><strong>Gmail API</strong> (OAuth) via n8n</td><td>Triagem, etiquetagem, resposta e envio do contrato</td></tr>
 <tr><td>WhatsApp</td><td><strong>WhatsApp Cloud API</strong></td><td>Número profissional separado do pessoal</td></tr>
 <tr><td>Gravação e transcrição</td><td><strong>PLAUD Note</strong> → node comunitário n8n</td><td><span class="badge b-upd">Atualizado</span> Dois tipos de gravação: chamada telefónica e reunião presencial. <em>Plano B:</em> Zapier → webhook n8n (integração oficial)</td></tr>
-<tr><td>Contratos</td><td><strong>PDF gerado pelo sistema interno do grupo</strong> → e-mail → captura e arquivo no CRM → <strong>leitura por IA</strong> → CRM atualizado</td><td><span class="badge b-upd">Atualizado na v3.1</span> A geração é do sistema interno do grupo. Este sistema recebe, arquiva e lê. Assinatura eletrónica fora do âmbito</td></tr>
+<tr><td>Contratos</td><td>Modelo preenchido automaticamente via n8n → <strong>PDF</strong> → e-mail → arquivo</td><td><span class="badge b-upd">Atualizado</span> Geração, envio e arquivo do documento. Assinatura eletrónica fora do âmbito</td></tr>
 <tr><td>Agenda</td><td><strong>Google Calendar API + Cal.com</strong></td><td>Test drives e entregas</td></tr>
 <tr><td>Desenvolvimento e QA</td><td>Claude Code · Playwright · GitHub</td><td>Ferramentas de construção</td></tr>
 </tbody></table>
@@ -495,47 +465,28 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <p><strong>O que fica de fora:</strong> gestão de contratos-quadro ou acordos comerciais com fabricantes enquanto documento jurídico — o sistema regista o que foi dito e combinado, não substitui o contrato; integração com portais ou sistemas próprios das montadoras; ata formal de reunião com valor probatório.</p>
 <p><strong>[A CONFIRMAR]</strong> Frequência e duração média das reuniões presenciais; lista de fabricantes, marcas e parceiros a registar como entidades.</p>
 <hr>
-<h2>7. Receção, arquivo e leitura do contrato <span class="badge b-upd">Atualizado</span></h2>
-<div class="impact">
-<p><strong>Esta secção foi corrigida na v3.1.</strong> Na v3.0 chamava-se <em>&ldquo;Geração do contrato em PDF&rdquo;</em> e descrevia este sistema a preencher o modelo e a produzir o documento. A cliente esclareceu que não é assim: <strong>o contrato é gerado pelo software interno da empresa de venda de viaturas, que é quem tem o sistema de contratos.</strong> O que este sistema faz é o que vem a seguir &mdash; receber o PDF, arquivá-lo e ler o que lá está para alimentar o CRM. Detalhe da correção no Ponto 11.</p>
-</div>
-<p><strong>Para que não haja dúvida sobre a fronteira:</strong> este sistema <strong>não gera o contrato, não preenche qualquer modelo e não substitui o software interno do grupo</strong>.</p>
-<h4>O circuito, corrigido:</h4>
+<h2>7. Geração do contrato em PDF <span class="badge b-new">Novo</span></h2>
+<p>Detalhe do que entra no âmbito por via do Ponto 8. Entra <strong>sem custo adicional</strong>, cumprindo o que ficou prometido no Ponto 2 da ronda 1.</p>
+<h4>O circuito:</h4>
 <table>
-<thead><tr><th>Passo</th><th>O que acontece</th><th>Onde</th><th>Intervenção humana</th></tr></thead>
+<thead><tr><th>Passo</th><th>O que acontece</th><th>Intervenção humana</th></tr></thead>
 <tbody>
-<tr><td>1</td><td>O contrato é produzido no <strong>sistema interno do grupo</strong> e sai em PDF</td><td>Fora deste sistema</td><td>Do lado do grupo, como hoje</td></tr>
-<tr><td>2</td><td>A gestora envia o PDF por e-mail ao destinatário</td><td>E-mail</td><td>Como hoje</td></tr>
-<tr><td>3</td><td>O PDF entra no CRM &mdash; por captura automática do anexo ou por carregamento manual</td><td>CRM</td><td>Nenhuma, na via recomendada</td></tr>
-<tr><td>4</td><td>Fica arquivado e ligado à ficha do cliente e à oportunidade, pesquisável e com controlo de acesso</td><td>CRM</td><td>Nenhuma</td></tr>
-<tr><td>5</td><td>A IA lê o PDF e extrai os dados do contrato: viatura, matrícula ou identificação, valores, condições, datas e prazos</td><td>CRM</td><td>Nenhuma</td></tr>
-<tr><td>6</td><td>O CRM é atualizado com esses dados, na ficha e na oportunidade</td><td>CRM</td><td><strong>Confirmação de um toque, no telemóvel</strong></td></tr>
-<tr><td>7</td><td>A oportunidade passa a <strong>negócio fechado</strong> no pipeline e dispara os passos seguintes já previstos &mdash; alarmística de entrega e seguimento pós-venda</td><td>CRM</td><td>Nenhuma</td></tr>
-<tr><td>8</td><td>O envio e o arquivo ficam registados no histórico do cliente</td><td>CRM</td><td>Nenhuma</td></tr>
+<tr><td>1</td><td>Os dados do negócio já estão no CRM, vindos da chamada transcrita, do formulário estratégico e da ficha do cliente</td><td>Nenhuma — os dados já lá estão</td></tr>
+<tr><td>2</td><td>O sistema preenche o modelo de contrato com esses dados</td><td>Nenhuma</td></tr>
+<tr><td>3</td><td>Gera o <strong>PDF</strong>, com nomenclatura consistente e número de referência</td><td>Nenhuma</td></tr>
+<tr><td>4</td><td>Apresenta o documento à gestora para conferência</td><td><strong>Confirmação de um toque, no telemóvel</strong></td></tr>
+<tr><td>5</td><td>Envia por e-mail ao destinatário definido, com o texto de acompanhamento aprovado</td><td>Nenhuma, após confirmação</td></tr>
+<tr><td>6</td><td>Arquiva no repositório do sistema, ligado à ficha do cliente e à oportunidade</td><td>Nenhuma</td></tr>
 </tbody></table>
-<p>O passo 6 existe pela mesma razão que existia o passo de conferência na v3.0: <strong>nenhum dado de contrato entra no sistema sem alguém olhar.</strong> É uma confirmação, não um preenchimento &mdash; e é ela que impede que um erro de leitura se propague ao pipeline e à faturação.</p>
-<h4>Como o PDF chega ao CRM &mdash; duas vias:</h4>
-<table>
-<thead><tr><th></th><th>A) Carregamento manual</th><th>B) Captura por e-mail <em>(recomendada)</em></th></tr></thead>
-<tbody>
-<tr><td>Como funciona</td><td>A gestora abre a ficha do cliente e carrega o ficheiro</td><td>O CRM vigia a caixa de e-mail e capta o anexo assim que ela envia o contrato</td></tr>
-<tr><td>Trabalho da gestora</td><td>Um passo extra por cada contrato</td><td><strong>Nenhum</strong></td></tr>
-<tr><td>Se falhar</td><td>O contrato fica fora do sistema &mdash; e o CRM não é atualizado</td><td>Não depende de memória: o documento entra por ter sido enviado</td></tr>
-<tr><td>Custo e prazo</td><td>Sem alteração</td><td><strong>Sem alteração</strong> &mdash; aproveita a integração de e-mail já prevista no âmbito para a triagem</td></tr>
-</tbody></table>
-<p><strong>A recomendação é a via B</strong>, e a razão é a mesma que orienta todo o desenho deste sistema: <strong>alimentar-se sozinho, em vez de exigir que a gestora se lembre.</strong> O contrato é enviado quando o negócio fecha &mdash; o momento exato em que a atenção já está no cliente seguinte. Um passo manual aí é o passo que se perde, e quando se perde não é só o ficheiro que fica de fora: é a atualização do CRM, o estado da oportunidade e toda a alarmística que vem a seguir. Com a captura automática, <strong>o documento nunca fica de fora do sistema</strong>. E como a ligação à caixa de e-mail já está no âmbito, não acrescenta custo nem prazo.</p>
-<p>As duas vias podem coexistir: a captura automática como regra, o carregamento manual como recurso para contratos que cheguem por outro caminho.</p>
-<p><strong>Dentro do âmbito:</strong> entrada do PDF no CRM pelas vias acima; arquivo pesquisável ligado à ficha do cliente e à oportunidade, com controlo de acesso; <strong>leitura do PDF por IA</strong> e extração dos campos do contrato; <strong>atualização automática do CRM</strong> com esses dados, sujeita a confirmação da gestora; atualização do estado da oportunidade no pipeline e disparo dos passos seguintes já previstos no escopo; registo do envio e do arquivo no histórico do cliente.</p>
-<p><strong>Fora do âmbito:</strong> a <strong>geração do contrato</strong> &mdash; é feita pelo sistema interno do grupo; a <strong>integração direta com esse sistema interno</strong>; a <strong>assinatura eletrónica</strong>, conforme decidido na ronda 1; e a <strong>validação jurídica do conteúdo do contrato</strong>.</p>
-<p><strong>Sobre o esforço, sem rodeios.</strong> O que sai &mdash; preenchimento do modelo e geração do PDF &mdash; e o que entra &mdash; leitura do PDF e atualização automática do CRM &mdash; equivalem-se em trabalho. <strong>Sem alteração de valor nem de prazo.</strong></p>
-<p><strong>O que é preciso da cliente</strong> <span class="tag t-conf">A confirmar</span> &mdash; quatro coisas:</p>
+<p>O passo 4 existe de propósito: um contrato não sai sem alguém olhar. É uma confirmação, não um preenchimento.</p>
+<p><strong>Dentro do âmbito:</strong> preenchimento automático do modelo; geração do PDF; envio por e-mail; arquivo pesquisável ligado à ficha do cliente e à oportunidade; registo do envio no histórico do cliente.</p>
+<p><strong>Fora do âmbito:</strong> assinatura eletrónica (tratada pelo BackOffice, conforme a ronda 1); integração com a plataforma de contratos do grupo automóvel; validação jurídica do conteúdo do modelo.</p>
+<p><strong>O que é preciso da cliente [A CONFIRMAR]</strong> — três coisas, e nenhuma delas complexa:</p>
 <ol>
-<li><strong>Dois ou três PDF de contrato reais</strong>, tal como saem do sistema interno, para mapear a leitura. Podem vir com os dados sensíveis ocultados &mdash; o que interessa é a estrutura do documento.</li>
-<li><strong>A lista dos campos do contrato que devem alimentar o CRM</strong> &mdash; quais interessam e o que devem atualizar na ficha do cliente e na oportunidade.</li>
-<li><strong>A via de entrada do PDF</strong> &mdash; carregamento manual (A) ou captura automática por e-mail (B). <em>Recomendada: a B.</em></li>
-<li><strong>O local de arquivo</strong> &mdash; no armazenamento do próprio sistema (Supabase Storage, com controlo de acesso e ligação à ficha) ou numa pasta em nuvem da empresa. A primeira é a opção recomendada, por manter o documento ligado ao registo e sob as mesmas regras de acesso; a segunda é viável se houver uma exigência de organização interna que a imponha.</li>
+<li><strong>O modelo de contrato em uso</strong> — o ficheiro, tal como está hoje.</li>
+<li><strong>A lista de campos a preencher</strong> — quais são, e de onde vem cada um.</li>
+<li><strong>O local de arquivo</strong> — no armazenamento do próprio sistema (Supabase Storage, com controlo de acesso e ligação à ficha) ou numa pasta em nuvem da empresa. A primeira é a opção recomendada, por manter o documento ligado ao registo e sob as mesmas regras de acesso; a segunda é viável se houver uma exigência de organização interna que a imponha.</li>
 </ol>
-<p><span class="tag t-conf">A confirmar</span> Quem envia o e-mail com o contrato. Hoje é a gestora, e é esse o pressuposto do circuito acima. Se preferir, o envio pode passar a ser feito a partir do CRM, sobre a mesma ligação de e-mail &mdash; nesse caso é preciso o texto de acompanhamento aprovado por ela.</p>
 <hr>
 <h2>8. Infraestrutura e fronteira de responsabilidade <span class="badge b-upd">Atualizado</span></h2>
 <p>Confirmado pela cliente na ronda 2: <strong>todo o servidor e as cópias de segurança são geridos pela equipa dela.</strong> A fronteira abaixo fica validada.</p>
@@ -575,7 +526,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <li>Requisitos mínimos de servidor entregues por escrito, com a documentação de instalação e reposição, e decisão Supabase Cloud vs. self-hosted</li>
 <li>Teste do node comunitário PLAUD → n8n, com veredito sobre manter ou dispensar o Zapier</li>
 <li><span class="badge b-new">Novo</span> Levantamento da frequência e duração real das reuniões presenciais e dimensionamento do plano PLAUD</li>
-<li><span class="badge b-upd">Atualizado na v3.1</span> Receção de exemplos reais do PDF de contrato emitido pelo sistema interno, mapeamento dos campos que devem alimentar o CRM e decisão da via de entrada — carregamento manual ou captura por e-mail</li>
+<li><span class="badge b-new">Novo</span> Receção do modelo de contrato e mapeamento dos campos</li>
 </ul>
 <p><em>Entregável:</em> protótipo online, acessível por telemóvel, com sessão de validação. Nenhuma fase seguinte arranca sem aprovação desta.</p>
 <h4>Fase 2 — Núcleo: Base de Dados e CRM · Dias 11 a 23</h4>
@@ -609,7 +560,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <li>Formulário estratégico pré-proposta (dados + documentos), com seguimento a D+2 e D+5</li>
 <li>Rastreamento multi-proposta com <strong>cobrança diária automática</strong> a cada marca em falta</li>
 <li>Handoff automático para gestora de crédito, colega de seguros e colega de apoio</li>
-<li><span class="badge b-upd">Atualizado na v3.1</span> <strong>Receção do PDF de contrato</strong> emitido pelo sistema interno do grupo, arquivo ligado à ficha e à oportunidade, <strong>leitura por IA</strong> dos dados do contrato, atualização automática do CRM com confirmação da gestora e passagem da oportunidade a negócio fechado — <em>geração do contrato e assinatura eletrónica fora do âmbito</em></li>
+<li><span class="badge b-upd">Atualizado</span> <strong>Geração do contrato em PDF</strong> a partir dos dados do CRM, confirmação da gestora, <strong>envio por e-mail e arquivo ligado à ficha</strong> — <em>assinatura eletrónica fora do âmbito</em></li>
 <li>Registo do sinal</li>
 </ul>
 <p class="sublabel">Pipeline 2 — Retenção e Reativação</p>
@@ -643,7 +594,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <h4>Fase 4 — Afinação, QA e Formação · Dias 46 a 55</h4>
 <ul>
 <li>Testes ponta a ponta de todos os fluxos (desktop e telemóvel)</li>
-<li><span class="badge b-upd">Atualizado na v3.1</span> Teste ponta a ponta do circuito de contrato: e-mail com PDF → captura → arquivo → leitura por IA → CRM e pipeline atualizados</li>
+<li><span class="badge b-new">Novo</span> Teste ponta a ponta do circuito de contrato: dados → PDF → e-mail → arquivo</li>
 <li>Registo de execuções, reprocessamento e visibilidade de falhas nas automações</li>
 <li>Calibração dos prompts de IA com casos reais</li>
 <li><span class="badge b-new">Novo</span> Calibração da extração de compromissos, com reuniões presenciais reais</li>
@@ -662,7 +613,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <tbody>
 <tr><td><strong>Motor de regras de janela de recompra</strong></td><td>Ronda 1, Ponto 5</td><td>Data prevista de recompra por cliente (data de compra + tipo de viatura + intervalo médio editável pela cliente), alerta antecipado configurável, entrada automática no Pipeline 2, lista no dashboard a 30/60/90 dias</td><td>Modelo estatístico treinado sobre o histórico; pontuação de probabilidade de conversão; previsão de valor de negócio</td><td>Incluído nos R$ 500</td></tr>
 <tr><td><strong>Autorresponder conversacional</strong></td><td>Ronda 1, Ponto 5</td><td>Respostas em e-mail e WhatsApp com contexto do histórico e da conversa, compreensão de intenção, resposta por tópicos, base de conhecimento aprovada pela cliente, supervisão humana nos assuntos sensíveis, escalada para pessoa, registo na ficha</td><td>Negociação autónoma de preço, desconto ou retoma; compromissos contratuais e propostas formais sem validação humana; aconselhamento jurídico, fiscal ou de crédito; resposta autónoma a reclamações formais; chamadas de voz</td><td>Incluído nos R$ 500</td></tr>
-<tr><td><strong><span class="badge b-upd">Atualizado na v3.1</span> Receção, arquivo e leitura do contrato</strong></td><td>Ronda 2, Ponto 8 · corrigido na ronda 3, Ponto 11</td><td>Entrada do PDF no CRM (captura automática por e-mail ou carregamento manual), arquivo pesquisável ligado à ficha e à oportunidade, leitura do PDF por IA, atualização automática do CRM com confirmação da gestora, passagem da oportunidade a negócio fechado e disparo dos passos seguintes</td><td><strong>Geração do contrato — é do sistema interno do grupo</strong>; integração direta com esse sistema; assinatura eletrónica; validação jurídica do conteúdo</td><td><strong>Sem custo</strong></td></tr>
+<tr><td><strong><span class="badge b-new">Novo</span> Geração do contrato em PDF</strong></td><td>Ronda 2, Ponto 8</td><td>Preenchimento automático do modelo, geração do PDF, confirmação da gestora, envio por e-mail, arquivo ligado à ficha do cliente e à oportunidade</td><td>Assinatura eletrónica; integração com a plataforma de contratos do grupo; validação jurídica do modelo</td><td><strong>Sem custo</strong></td></tr>
 <tr><td><strong><span class="badge b-new">Novo</span> Gestão dos dois tipos de gravação e entidade fabricante</strong></td><td>Ronda 2, Ponto 6</td><td>Classificação de tipo e contraparte na ingestão, roteamento distinto, entidade fabricante/marca/parceiro com ficha e histórico, extração de compromissos e prazos, pesquisa por marca, alerta de compromisso a vencer</td><td>Gestão jurídica de contratos-quadro; integração com portais das montadoras; ata formal com valor probatório</td><td><strong>Sem custo</strong></td></tr>
 </tbody></table>
 <hr>
@@ -670,9 +621,9 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <table>
 <thead><tr><th>Fase</th><th>Dias (v1.0)</th><th>Dias (v2.0)</th><th>Dias (v3.0)</th><th>Foco</th></tr></thead>
 <tbody>
-<tr><td>1</td><td>1–10</td><td>1–10</td><td><strong>1–10</strong></td><td>Protótipo visual, ficha de fabricante, requisitos de servidor, teste do node PLAUD, circuito do contrato</td></tr>
+<tr><td>1</td><td>1–10</td><td>1–10</td><td><strong>1–10</strong></td><td>Protótipo visual, ficha de fabricante, requisitos de servidor, teste do node PLAUD, modelo de contrato</td></tr>
 <tr><td>2</td><td>11–22</td><td>11–23</td><td><strong>11–23</strong></td><td>Base de dados, migração, CRM e entidade fabricante</td></tr>
-<tr><td>3</td><td>23–37</td><td>24–45</td><td><strong>24–45</strong></td><td>Automações, pipelines, IA, dois tipos de gravação, receção e leitura do contrato, janela de recompra e autorresponder</td></tr>
+<tr><td>3</td><td>23–37</td><td>24–45</td><td><strong>24–45</strong></td><td>Automações, pipelines, IA, dois tipos de gravação, contrato em PDF, janela de recompra e autorresponder</td></tr>
 <tr><td>4</td><td>38–45</td><td>46–55</td><td><strong>46–55</strong></td><td>QA, circuito de contrato ponta a ponta, calibração e formação</td></tr>
 <tr><td><strong>Total</strong></td><td><strong>45 dias</strong></td><td><strong>55 dias</strong></td><td><strong>55 dias</strong></td><td></td></tr>
 </tbody></table>
@@ -710,14 +661,13 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <ul>
 <li>Modelo preditivo de recompra treinado sobre a base histórica — só faz sentido depois de haver histórico consolidado no sistema. O motor de regras, esse, <strong>está incluído</strong> (secção 10)</li>
 <li>Assinatura eletrónica de documentos — tratada pelo BackOffice da empresa</li>
-<li><span class="badge b-new">Novo na v3.1</span> <strong>Geração do contrato</strong> — é efetuada pelo sistema interno do grupo automóvel, que é quem tem o sistema de contratos. Este sistema recebe o PDF, arquiva-o e lê-o (secção 7)</li>
-<li><span class="badge b-upd">Atualizado na v3.1</span> Validação jurídica do conteúdo do contrato — o sistema arquiva e lê o documento que lhe é entregue, não valida o que nele consta</li>
+<li><span class="badge b-new">Novo</span> Validação jurídica do conteúdo do modelo de contrato — o sistema preenche e envia o modelo que a cliente fornecer</li>
 <li><span class="badge b-new">Novo</span> Gestão de contratos-quadro e acordos comerciais com fabricantes enquanto documento jurídico, e ata formal de reunião com valor probatório</li>
 <li><span class="badge b-new">Novo</span> Integração com portais ou sistemas próprios das montadoras</li>
 <li>Negociação autónoma de preço, desconto ou retoma pelo autorresponder, e compromissos contratuais sem validação humana</li>
 <li><strong>Administração de sistemas do servidor</strong> — instalação do sistema operativo, atualizações, correções de segurança, cópias de segurança, monitorização e disponibilidade. Confirmado na ronda 2 como responsabilidade da equipa da cliente: ver a fronteira na secção 8</li>
 <li>Substituição do meio de gravação, caso o PLAUD venha a ser dispensado</li>
-<li><span class="badge b-upd">Atualizado na v3.1</span> Integração direta com a plataforma de contratos do grupo automóvel — o PDF entra por e-mail ou por carregamento, não por ligação entre sistemas</li>
+<li>Integração com a plataforma de contratos do grupo automóvel</li>
 <li>Telefonia VoIP com gravação nativa integrada</li>
 <li>Digitalização do caderno de papel em suporte físico</li>
 <li>Parecer jurídico de RGPD e cláusulas de consentimento de gravação — <span class="badge b-new">Novo</span> com nota específica: a gravação de reuniões presenciais com terceiros tem exigências de consentimento próprias, distintas das da gravação de chamadas</li>
@@ -729,7 +679,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <p><strong>Minutos do PLAUD. <span class="badge b-new">Novo</span></strong> Com reuniões presenciais no circuito, o plano Pro deixa de chegar na maioria dos cenários, e os minutos não transitam de mês para mês. Um mês com mais reuniões do que o previsto pode esgotar o plano e deixar uma gravação por transcrever. <em>Mitigação:</em> provisionar o Unlimited desde o início e medir o consumo real no primeiro mês (Fase 4), com possibilidade de descer de plano depois.</p>
 <p><strong>Ligação ao PLAUD.</strong> O node comunitário para n8n será testado na Fase 1. Sendo uma integração não oficial, sobre uma API interna não documentada e com autenticação por token extraído do navegador, pode deixar de funcionar sem aviso. Por isso a integração oficial via Zapier fica documentada e pronta como plano B, sem custo adicional dentro do âmbito. O fabricante disponibiliza também uma plataforma de programação própria, tecnicamente superior, mas cuja cobertura na região europeia ainda não estava disponível à data desta proposta; caso venha a ficar, a ligação será migrada sem custo adicional.</p>
 <p><strong>Classificação errada de gravações. <span class="badge b-new">Novo</span></strong> Uma reunião de fabricante classificada como chamada de cliente entraria no funil e distorceria as métricas. <em>Mitigação:</em> quando a certeza da classificação automática é baixa, o sistema pergunta em vez de decidir — e a reclassificação manual é sempre possível, com o registo a mudar de sítio sem perder histórico.</p>
-<p><strong>Leitura do PDF de contrato. <span class="badge b-upd">Atualizado na v3.1</span></strong> A extração automática depende de o PDF emitido pelo sistema interno ter uma estrutura estável. Se o layout mudar, ou se o ficheiro for uma digitalização de má qualidade, a leitura pode falhar ou trazer campos errados. <em>Mitigação:</em> receber dois ou três PDF reais na Fase 1 e fechar o mapeamento antes da Fase 3; passo de confirmação da gestora antes de os dados serem fixados no CRM; e sinalização, no CRM, de qualquer contrato cuja leitura não tenha corrido bem, para tratamento manual &mdash; o documento fica sempre arquivado, mesmo quando a leitura falha.</p>
+<p><strong>Modelo de contrato. <span class="badge b-new">Novo</span></strong> A geração do PDF depende de o modelo fornecido ser estável e de os campos estarem mapeados. Um modelo que mude de estrutura a meio do projeto obriga a refazer o mapeamento. <em>Mitigação:</em> receber o modelo na Fase 1 e fechar a lista de campos antes da Fase 3.</p>
 <p><strong>Consumo de IA do autorresponder. <span class="badge b-new">Novo</span></strong> É a maior linha de custo de IA e escala com o volume de conversas. <em>Mitigação:</em> alerta de saldo configurado na Fase 4, teto de consumo mensal e possibilidade de mover parte das respostas para um modelo mais económico se o volume real o justificar — alteração de um nó do fluxo.</p>
 <p><strong>Infraestrutura gerida pela cliente.</strong> A disponibilidade do sistema fica dependente da administração feita do lado dela. Um servidor sem cópias de segurança testadas é o risco mais material deste projeto — o prestador entrega a recomendação e a documentação de reposição na Fase 1, mas a execução é da equipa da cliente.</p>
 <p><strong>Prazo.</strong> Os 55 dias pressupõem que as dependências da secção 15 são cumpridas nas datas indicadas e que o servidor está disponível, com os requisitos mínimos, no início da Fase 2.</p>
@@ -743,8 +693,7 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <tr><td>Decisão Supabase Cloud ou self-hosted, e identificação do responsável técnico do servidor</td><td>Fase 1</td></tr>
 <tr><td>Confirmação sobre o PLAUD — modelo do aparelho e plano em vigor</td><td>Fase 1</td></tr>
 <tr><td><span class="badge b-new">Novo</span> Frequência e duração média das reuniões presenciais, para dimensionar o plano PLAUD</td><td>Fase 1</td></tr>
-<tr><td><span class="badge b-upd">Atualizado na v3.1</span> Dois ou três PDF de contrato reais, tal como saem do sistema interno, e lista dos campos que devem alimentar o CRM</td><td>Fase 1</td></tr>
-<tr><td><span class="badge b-new">Novo na v3.1</span> Decisão sobre a via de entrada do PDF — carregamento manual ou captura automática por e-mail</td><td>Fase 1</td></tr>
+<tr><td><span class="badge b-new">Novo</span> Modelo de contrato em uso e lista completa de campos a preencher</td><td>Fase 1</td></tr>
 <tr><td><span class="badge b-new">Novo</span> Decisão sobre o local de arquivo do PDF de contrato</td><td>Fase 1</td></tr>
 <tr><td><span class="badge b-new">Novo</span> Lista de fabricantes, marcas e parceiros a registar como entidades</td><td>Antes do início da Fase 2</td></tr>
 <tr><td>Compilação dos dados da <strong>Era 2</strong> (mapa de faturação + contratos), estimada em cerca de 15 dias de trabalho da cliente</td><td>Antes do início da Fase 2</td></tr>
@@ -753,22 +702,20 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <tr><td><span class="badge b-upd">Atualizado</span> Contas de API criadas e com saldo — Claude e OpenAI</td><td>Início da Fase 3</td></tr>
 <tr><td>Tabela de intervalos médios de recompra por tipo de viatura</td><td>Antes do início da Fase 3</td></tr>
 <tr><td>Base de conhecimento do autorresponder e lista de assuntos que exigem validação humana</td><td>Antes do início da Fase 3</td></tr>
-<tr><td><span class="badge b-upd">Atualizado na v3.1</span> Texto de acompanhamento do e-mail de envio do contrato — <strong>apenas se</strong> o envio passar a ser feito a partir do CRM</td><td>Antes do início da Fase 3</td></tr>
+<tr><td><span class="badge b-new">Novo</span> Texto de acompanhamento do e-mail de envio do contrato</td><td>Antes do início da Fase 3</td></tr>
 <tr><td>Aprovação do protótipo da Fase 1</td><td>Dia 10</td></tr>
 <tr><td>Validação dos modelos de resposta rápida e dos rótulos em português europeu</td><td>Fase 4</td></tr>
 </tbody></table>
 <p>Atrasos nestas dependências deslocam o calendário no mesmo número de dias.</p>
 <hr>
 <h2>16. Itens marcados a confirmar <span class="badge b-upd">Atualizado</span></h2>
-<p><strong>Resolvidos e por isso removidos da lista:</strong> manutenção do PLAUD <em>(mantém-se, confirmado)</em>; existência de template de contrato <em>(existe, é digital e produz PDF)</em>; responsabilidade pelo servidor e pelas cópias de segurança <em>(equipa da cliente)</em>; arquitetura da camada de IA <em>(híbrida, por decisão da cliente)</em>; e, na ronda 3, <strong>quem gera o contrato</strong> <em>(o sistema interno do grupo — sai do âmbito deste projeto)</em>.</p>
+<p><strong>Resolvidos nesta ronda</strong> e por isso removidos da lista: manutenção do PLAUD <em>(mantém-se, confirmado)</em>; existência de template de contrato <em>(existe, é digital e produz PDF)</em>; responsabilidade pelo servidor e pelas cópias de segurança <em>(equipa da cliente)</em>; arquitetura da camada de IA <em>(híbrida, por decisão da cliente)</em>.</p>
 <table>
 <thead><tr><th>Item</th><th>Onde</th></tr></thead>
 <tbody>
 <tr><td><span class="badge b-new">Novo</span> Frequência e duração média das reuniões presenciais — determina o plano PLAUD</td><td>Ponto 6 · secção 6</td></tr>
-<tr><td><span class="badge b-new">Novo na v3.1</span> Via de entrada do PDF de contrato no CRM — carregamento manual ou <strong>captura automática por e-mail</strong> <em>(recomendada)</em></td><td>Ponto 11 · secção 7</td></tr>
-<tr><td><span class="badge b-new">Novo na v3.1</span> Campos do contrato que devem alimentar o CRM, e dois ou três PDF reais para mapear a leitura</td><td>Ponto 11 · secção 7</td></tr>
-<tr><td><span class="badge b-new">Novo na v3.1</span> Quem envia o e-mail com o contrato — a gestora, como hoje, ou o CRM em nome dela</td><td>Ponto 11 · secção 7</td></tr>
-<tr><td>Local de arquivo do PDF de contrato — armazenamento do sistema ou pasta em nuvem da empresa</td><td>Ponto 11 · secção 7</td></tr>
+<tr><td><span class="badge b-new">Novo</span> Modelo de contrato em uso e lista completa de campos</td><td>Ponto 8 · secção 7</td></tr>
+<tr><td><span class="badge b-new">Novo</span> Local de arquivo do PDF de contrato — armazenamento do sistema ou pasta em nuvem da empresa</td><td>Ponto 8 · secção 7</td></tr>
 <tr><td><span class="badge b-new">Novo</span> Lista de fabricantes, marcas e parceiros a registar como entidades</td><td>Ponto 6 · secção 6</td></tr>
 <tr><td>Modelo do aparelho PLAUD e plano em vigor</td><td>Ponto 6 · secção 4</td></tr>
 <tr><td>Preços PLAUD em EUR para Portugal e impostos locais</td><td>Ponto 6 · secção 12</td></tr>
@@ -781,5 +728,5 @@ code{background:#f2f3f5;padding:1px 5px;border-radius:3px;font-size:.9em}
 <tr><td>Tratamento de IVA na faturação das contas de IA (autoliquidação)</td><td>Secção 5 · anexo</td></tr>
 </tbody></table>
 <hr>
-<p class="sublabel">Documento confidencial — destinado exclusivamente à avaliação desta proposta. Substitui a versão 3.0, de 29 de julho de 2026, corrigindo a secção 7. As versões 1.0, 2.0 e 3.0 mantêm-se disponíveis para consulta.</p>
+<p class="sublabel">Documento confidencial — destinado exclusivamente à avaliação desta proposta. Substitui a versão 2.0, de 27 de julho de 2026. As versões 1.0 e 2.0 mantêm-se disponíveis para consulta.</p>
 </main></body></html>
